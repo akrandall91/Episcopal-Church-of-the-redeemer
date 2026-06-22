@@ -1,0 +1,1688 @@
+
+
+ 
+
+?
+
+EPISCOPAL CHURCH OF THE REDEEMER
+
+Greensboro, North Carolina · Est. 1909
+
+WEBSITE STRATEGY, ARCHITECTURE &IMPLEMENTATION BLUEPRINT
+
+A Forward-Looking Rebuild for Legacy, SEO, Conversion & Scalability
+
+2025  |  Prepared for Board & Implementation Review
+
+DOCUMENT CONTENTS
+
+01  Strategic Foundation & Positioning
+
+02  Full Sitemap & Information Architecture
+
+03  Homepage Wireframe & Content Blueprint
+
+04  Page-by-Page Content & SEO Structure
+
+05  Sign-Up System: Form, Tagging & CRM Logic
+
+06  Donation System Design & Messaging
+
+07  Video System Architecture
+
+08  SEO Strategy: Keywords, Schema & Linking
+
+09  Design System: Colors, Type & Layout
+
+10  Codex Build Instructions
+
+
+SECTION 01   ?   Episcopal Church of The Redeemer
+
+Strategic Foundation & Positioning
+Who Redeemer is, who it serves, and how the site must work for them
+
+
+
+1.1  Executive Summary
+
+The Episcopal Church of The Redeemer is one of Greensboro&apos;s most historically significant institutions — a 115-year-old African-American Episcopal parish that served as a Civil Rights organizing hub, launched an entire diocese&apos;s mission presence for Black Episcopalians, and continues to anchor its community today. Its current website does not reflect that weight. This blueprint redesigns it from the ground up: historically grounded, conversion-optimized, SEO-structured, and built to scale.
+
+
+
+1.2  Positioning Statement
+
+?  Core Brand Position
+
+The Episcopal Church of The Redeemer is Greensboro&apos;s historic Black Episcopal church — a 115-year institution
+
+rooted in faith, shaped by the Civil Rights movement, and open to everyone.
+
+We are the only African-American Episcopal parish in Greensboro.
+
+All have a place at Redeemer.
+
+
+
+1.3  Primary Audiences
+Audience
+Who They Are
+What They Need
+Key CTA
+First-Time Visitors
+Families, individuals exploring a church home
+Trust, welcome, service times
+Plan Your Visit
+Students
+A&T, UNCG, Bennett College students
+Community, belonging, schedule
+Sign Up / Connect
+Returning Episcopalians
+Lifelong members, transfers
+Familiarity, depth, ministries
+Learn More / Give
+History Seekers
+Researchers, genealogists, journalists
+Deep historical content
+Our History
+Online Worshippers
+Remote attendees, shut-ins
+Reliable stream, clear times
+Watch Live
+Donors
+Members, foundations, grateful alumni
+Trust, impact, recurring options
+Give Online
+
+
+
+1.4  Strategic Objectives
+
+
+Establish digital authority as the historic Black Episcopal presence in Greensboro
+
+
+Rank on page 1 for: &quot;Black Episcopal Church Greensboro,&quot; &quot;Episcopal Church Greensboro NC,&quot; &quot;church near A&T,&quot; &quot;church near UNCG,&quot; &quot;church near Bennett College&quot;
+
+
+Convert visitors to: email subscribers, event attendees, regular givers
+
+
+Reduce friction for first-time visitors (what is this church, is it for me, how do I come?)
+
+
+Create a maintainable CMS-ready structure the church staff can update independently
+
+
+Lay groundwork for CRM integration (Zoho or equivalent), email marketing, and event management
+
+
+
+1.5  Competitive Gap Analysis
+
+No competitor in Greensboro occupies the &quot;historic Black Episcopal&quot; positioning online. This is a wide-open semantic territory. The church should own every relevant local keyword through a hub-and-spoke content architecture — a strong homepage hub with dedicated SEO landing pages as spokes.
+
+
+
+
+
+SECTION 02   ?   Episcopal Church of The Redeemer
+
+Full Sitemap & Information Architecture
+Complete URL structure, page hierarchy, and navigation system
+
+
+
+2.1  Navigation Structure
+Nav Label
+URL
+Type
+Priority
+Home
+/
+Core
+P1
+About
+/about
+Core
+P1
+Our History
+/history
+Core + SEO Hub
+P1
+Worship
+/worship
+Core
+P1
+Ministries
+/ministries
+Core
+P1
+Plan Your Visit
+/visit
+Conversion
+P1
+Watch Live
+/live
+Conversion
+P1
+Sign Up
+/sign-up
+Conversion
+P1
+Give
+/donate
+Conversion
+P1
+Calendar
+/calendar
+Utility
+P2
+Contact
+/contact
+Utility
+P2
+
+
+
+2.2  SEO Landing Pages (Spoke Pages)
+
+These pages are NOT in the main nav. They are linked from the footer, the History page, and the About page. They exist primarily for search engine ranking.
+Page Title
+URL
+Primary Keyword Target
+Black Episcopal Church in Greensboro
+/black-episcopal-church-greensboro
+&quot;Black Episcopal Church Greensboro&quot;
+Episcopal Church Greensboro NC
+/episcopal-church-greensboro-nc
+&quot;Episcopal Church Greensboro NC&quot;
+Church Near NC A&T
+/church-near-ncat
+&quot;church near A&T Greensboro&quot;
+Church Near UNC Greensboro
+/church-near-uncg
+&quot;church near UNCG&quot;
+Church Near Bennett College
+/church-near-bennett-college
+&quot;church near Bennett College Greensboro&quot;
+African American Episcopal Church
+/african-american-episcopal-church-nc
+&quot;African American Episcopal church NC&quot;
+
+
+
+2.3  Full Page Inventory
+#
+Page
+URL
+Purpose
+1
+Homepage
+/
+Central hub, hero, stream, CTAs
+2
+About Us
+/about
+Church overview, rector, vestry, mission
+3
+Our History
+/history
+Full timeline, Civil Rights legacy, founding
+4
+Worship
+/worship
+Service times, what to expect, Eucharist
+5
+Ministries
+/ministries
+All 12 ministries, how to join
+6
+Plan Your Visit
+/visit
+First-timer guide, directions, FAQ
+7
+Watch Live
+/live
+Embedded stream + archive
+8
+Sign Up
+/sign-up
+Lead capture, CRM intake
+9
+Give / Donate
+/donate
+One-time + recurring donation
+10
+Calendar
+/calendar
+Events, Holy Week, recurring services
+11
+Contact
+/contact
+Form, phone, address, map
+12
+SEO: Black Episcopal
+/black-episcopal-church-greensboro
+Keyword landing page
+13
+SEO: Episcopal GSO
+/episcopal-church-greensboro-nc
+Keyword landing page
+14
+SEO: Near A&T
+/church-near-ncat
+Keyword landing page
+15
+SEO: Near UNCG
+/church-near-uncg
+Keyword landing page
+16
+SEO: Near Bennett
+/church-near-bennett-college
+Keyword landing page
+17
+SEO: AAME Church
+/african-american-episcopal-church-nc
+Keyword landing page
+18
+Capital Campaign
+/capital-campaign
+Campaign-specific donation page
+19
+Bible Study
+/bible-study
+Schedule and signup
+20
+Privacy Policy
+/privacy
+Legal, required for forms
+
+
+SECTION 03   ?   Episcopal Church of The Redeemer
+
+Homepage Wireframe & Content Blueprint
+Section-by-section layout with copy direction, CTAs, and technical notes
+
+
+
+3.1  Homepage Section Map
+
+The homepage operates as a progressive disclosure funnel. Each section answers one question and leads to the next action.
+
+
+
+SECTION A — Navigation Bar (Sticky)
+
+??  Layout
+
+Left: Shield logo + &quot;Episcopal Church of The Redeemer&quot; wordmark
+
+Center: Nav links — About · History · Worship · Ministries · Visit
+
+Right: [Watch Live] button (crimson) + [Give] button (gold outline)
+
+Behavior: Transparent over hero, solid dark background on scroll
+
+
+
+SECTION B — Hero (Full Viewport)
+
+??  Layout & Copy
+
+Background: Dark with animated radial glow, subtle grid pattern
+
+Live badge: &quot;? SUNDAYS AT 10:00AM · IN PERSON & YOUTUBE LIVE&quot;
+
+Eyebrow: &quot;Greensboro, North Carolina · Est. 1909&quot;
+
+Headline: &quot;Episcopal Church / of the / Redeemer&quot; (Cormorant Garamond, stacked)
+
+Sub-headline: &quot;The only African-American Episcopal parish in Greensboro.&quot;
+
+Tagline: &quot;All have a place at Redeemer.&quot;
+
+CTAs: [Watch Live Service ?]  [Plan Your Visit]  [Give Online]
+
+Bottom: Address line — 901 E Friendly Ave · Greensboro, NC 27401
+
+
+
+SECTION C — Holy Week / Announcement Banner
+
+??  Layout
+
+Crimson background strip — conditionally displayed for seasonal events
+
+Left column: Event name + &quot;Now Observing&quot; tag
+
+Right columns: Date + event + time rows (4 rows for Holy Week)
+
+CMS-editable — should be a configurable banner module
+
+
+
+SECTION D — Live Video Embed
+
+??  Layout & Tech
+
+Section label: &quot;WORSHIP WITH US&quot;
+
+Headline: &quot;Join Us Every Sunday at 10:00am&quot;
+
+Video: Auto-embedded YouTube player (NOT click-to-load)
+
+Default: Latest video from @churchoftheredeemer6718
+
+Below player: [Subscribe on YouTube] link
+
+Admin panel: CMS field to override video ID each week
+
+Note: Use YouTube IFrame API for auto-load of latest stream
+
+
+
+SECTION E — Identity Statement (The Redeemer Difference)
+
+??  Layout & Copy
+
+Light/parchment background — visual contrast break from dark sections
+
+Left: Large pull quote — &quot;All have a place at Redeemer.&quot;
+
+Right: 3 identity pillars, each with icon + headline + 2 sentences:
+
+  ?  Historic — Founded 1909. Civil Rights legacy. 115 years of faith.
+
+  ??  Welcoming — Multi-generational, multicultural. Everyone belongs here.
+
+  ??  Connected — Part of the Episcopal Church and Anglican Communion.
+
+Bottom: [Learn Our History ?]  [Plan Your Visit ?]
+
+
+
+SECTION F — Service Times
+
+??  Layout & Copy
+
+Dark background, gold accents
+
+Headline: &quot;Come Worship With Us&quot;
+
+Grid of 4 cards:
+
+  Card 1: Sunday 10:00am — Holy Eucharist (In Person + Live Stream)
+
+  Card 2: Sunday 9:00am — Church School (Pre-K through Adult)
+
+  Card 3: Sunday — Fellowship Hour (after service)
+
+  Card 4: [See Full Calendar ?]
+
+Each card: Day + time + title + note + hover animation
+
+CTA: [Plan Your Visit]
+
+
+
+SECTION G — Students & Young Adults
+
+??  Layout & Copy
+
+Semi-dark background, warm red accent bar on left edge
+
+Headline: &quot;You Belong Here — Near A&T, UNCG & Bennett College&quot;
+
+Body: &quot;Redeemer is less than a mile from North Carolina A&T State University,
+
+  UNC Greensboro, and Bennett College. If you are a student far from home,
+
+  this is your church family in Greensboro.&quot;
+
+3 school callouts: NC A&T · UNC Greensboro · Bennett College
+
+CTA: [Connect as a Student ?] ? /sign-up?interest=student
+
+SEO benefit: Internal link to /church-near-ncat, /church-near-uncg, /church-near-bennett-college
+
+
+
+SECTION H — Ministries Preview
+
+??  Layout & Copy
+
+Headline: &quot;Find Your Place in Our Ministries&quot;
+
+Grid of 6 ministry cards (abbreviated): Acolytes, Choir, Church School,
+
+  ECM, ECW, EYC — each with icon + name + 1-sentence description
+
+CTA: [Explore All Ministries ?]
+
+
+
+SECTION I — Mission Statement
+
+??  Layout & Copy
+
+Full-width crimson background
+
+Large italic quote: &quot;We are committed to uplifting the kingdom of God,
+
+  by spreading the gospel, increasing our spirituality, and assisting
+
+  in the creation of a peaceful and harmonious world.&quot;
+
+Attribution: — The Mission of the Episcopal Church of The Redeemer
+
+CTA: [Join Our Community ?]  [Give to Our Mission ?]
+
+
+
+SECTION J — Rector Introduction
+
+??  Layout & Copy
+
+Light parchment background
+
+Left: Rector photo (placeholder circle if no image)
+
+Right:
+
+  Label: &quot;A WORD FROM OUR RECTOR&quot;
+
+  Name: &quot;The Rev. Michelle Roach&quot;
+
+  Title: &quot;Rector, Episcopal Church of The Redeemer&quot;
+
+  Quote: Brief welcome quote (CMS-editable)
+
+  Link: [Meet Our Leadership ?] ? /about
+
+
+
+SECTION K — History Teaser
+
+??  Layout & Copy
+
+Dark panel background
+
+Year stamp: &quot;1909&quot; in large gold Cormorant type
+
+Headline: &quot;Over a Century of Faith in Greensboro&quot;
+
+Body: 2 sentences on the founding and Civil Rights legacy
+
+Stat row: Founded 1909 · Full Parish 1979 · 115+ Years of Faith
+
+CTA: [Read Our Full History ?]
+
+
+
+SECTION L — Sign Up / Stay Connected
+
+??  Layout & Copy
+
+Inline mini sign-up form (name + email + interest type)
+
+Headline: &quot;Stay Connected to The Redeemer Community&quot;
+
+Privacy note: &quot;We respect your privacy. No spam, ever.&quot;
+
+Full form: ? /sign-up
+
+
+
+SECTION M — Footer
+
+??  Layout
+
+Dark background, crimson top border
+
+Column 1: Logo + tagline + social icons (Facebook, YouTube, Instagram)
+
+Column 2: Quick Links — About, History, Worship, Ministries, Visit, Give
+
+Column 3: Contact — Address, phone, office hours
+
+Column 4: SEO links (small, low-key footer nav):
+
+  Black Episcopal Church Greensboro
+
+  Episcopal Church Greensboro NC
+
+  Church Near A&T · Near UNCG · Near Bennett
+
+Bottom bar: © 2025 · Privacy Policy · Powered by [platform]
+
+
+SECTION 04   ?   Episcopal Church of The Redeemer
+
+Page-by-Page Content & SEO Structure
+SEO titles, meta descriptions, structured content, and CTAs for every page
+
+
+
+4.1  Core Pages
+
+
+
+PAGE: /about — About Us
+SEO Title
+About Us | Episcopal Church of The Redeemer Greensboro NC
+Meta Description
+Learn about the Episcopal Church of The Redeemer — Greensboro&apos;s historic African-American Episcopal parish. Meet our Rector, Vestry, and discover our multi-generational community.
+H1
+About the Episcopal Church of The Redeemer
+Sections
+Mission · Rector Bio · Vestry · Diocese Affiliation · Our Congregation
+Primary CTA
+Plan Your Visit
+Secondary CTA
+Our History
+Internal Links
+/history · /visit · /ministries
+
+
+
+PAGE: /history — Our History
+SEO Title
+Our History Since 1909 | Episcopal Church of The Redeemer Greensboro
+Meta Description
+The Episcopal Church of The Redeemer was founded in 1909 as Greensboro&apos;s first mission for African-American Episcopalians. Explore 115 years of faith, civil rights legacy, and community.
+H1
+A History of Faith, Legacy & Service Since 1909
+Sections
+Founding (1906–1909) · Early Growth · Civil Rights Era · Parish Status 1979 · Centennial · Today
+Primary CTA
+Join Our Legacy — Plan Your Visit
+Schema
+Organization + HistoricalPlace schema
+Internal Links
+/black-episcopal-church-greensboro · /about · /donate
+
+
+
+PAGE: /worship — Worship
+SEO Title
+Sunday Worship at 10am | Episcopal Church Greensboro NC
+Meta Description
+Join us every Sunday at 10:00am for Holy Eucharist at the Episcopal Church of The Redeemer in Greensboro, NC. Worship in person or watch live on YouTube.
+H1
+Sunday Worship at The Redeemer
+Sections
+Service Times · What to Expect · Eucharist Explained · Seasonal Services · Watch Online
+Primary CTA
+Watch Live Service
+Secondary CTA
+Plan Your Visit
+
+
+
+PAGE: /visit — Plan Your Visit
+SEO Title
+Plan Your Visit | Episcopal Church of The Redeemer Greensboro NC
+Meta Description
+First time at The Redeemer? Here&apos;s everything you need to know — what to wear, when to arrive, where to park, and what to expect on Sunday morning.
+H1
+We&apos;re Glad You&apos;re Coming
+Sections
+What to Expect · Directions & Parking · Service Times · FAQ · Connect After Service
+Primary CTA
+Sign Up to Let Us Know You&apos;re Coming
+Map
+Embedded Google Map at 901 E Friendly Ave
+FAQ Items
+What do I wear? / Do I need to be Episcopal? / Is there childcare? / Can I take communion?
+
+
+
+4.2  SEO Landing Pages
+
+Each SEO landing page follows the same structure: keyword-rich H1, 300–500 words of locally relevant content, a map or distance note, internal links to core pages, and a primary CTA. They are not thin pages — they are genuinely useful to the audience they target.
+
+
+
+PAGE: /black-episcopal-church-greensboro
+SEO Title
+Black Episcopal Church in Greensboro NC | Church of The Redeemer
+Meta Description
+Looking for a Black Episcopal church in Greensboro, NC? The Episcopal Church of The Redeemer has been the African-American Episcopal presence in Greensboro since 1909. All are welcome.
+H1
+The Historic Black Episcopal Church of Greensboro, NC
+Key Content
+History of founding · Civil Rights legacy · Diocesan affiliation · &quot;Only African-American Episcopal parish in Greensboro&quot; · Statistics · Community anchor
+Primary CTA
+Plan Your Visit
+Internal Links
+/history · /about · /worship · /sign-up
+Schema
+LocalBusiness + Church + Organization
+
+
+
+PAGE: /church-near-ncat
+SEO Title
+Church Near NC A&T State University | Episcopal Church Greensboro
+Meta Description
+Are you an NC A&T student or faculty looking for a welcoming church home in Greensboro? The Episcopal Church of The Redeemer is minutes from campus.
+H1
+A Church Home Near NC A&T State University
+Key Content
+Distance from A&T · History (first worship held at A&T campus 1909) · Student welcome message · Youth ministries · Sign-up CTA
+Historical Note
+Use the founding history — first services were held at A&T campus. This is a powerful, authentic connection.
+Primary CTA
+Sign Up as a Student
+Internal Links
+/sign-up?interest=student · /worship · /visit · /church-near-uncg · /church-near-bennett-college
+
+
+
+PAGE: /church-near-uncg
+SEO Title
+Church Near UNC Greensboro | Episcopal Church of The Redeemer
+Meta Description
+UNC Greensboro students and faculty: find your church home at the Episcopal Church of The Redeemer. Welcoming, historic, and minutes from UNCG.
+H1
+A Welcoming Church Home Near UNC Greensboro
+Key Content
+Distance from UNCG · Student welcome · Sunday service times · Student-specific ministries (EYC) · Community events
+Primary CTA
+Connect With Us
+Internal Links
+/sign-up?interest=student · /ministries · /church-near-ncat · /church-near-bennett-college
+
+
+
+PAGE: /church-near-bennett-college
+SEO Title
+Church Near Bennett College Greensboro | Episcopal Church of The Redeemer
+Meta Description
+Bennett College students: find your spiritual home at the Episcopal Church of The Redeemer, Greensboro&apos;s historic African-American Episcopal parish. All are welcome.
+H1
+Welcome, Bennett College Students & Community
+Key Content
+Distance · ECW ministry connection · Women&apos;s Tea of Love program · Student-specific welcome · Service times
+Primary CTA
+Plan Your First Visit
+Note
+Bennett College is a historically Black women&apos;s college — highlight ECW and women&apos;s ministries here specifically
+
+
+SECTION 05   ?   Episcopal Church of The Redeemer
+
+Sign-Up System: Form, Tagging & CRM Logic
+Form architecture, field design, tagging rules, and Zoho CRM integration spec
+
+
+
+5.1  Form Fields
+Field
+Type
+Required
+Notes
+First Name
+Text
+Yes
+—
+Last Name
+Text
+Yes
+—
+Email Address
+Email
+Yes
+Primary CRM identifier
+Phone Number
+Tel
+No
+Optional — used for text follow-up
+I am a...
+Radio / Select
+Yes
+Visitor · Student · Parent · Current Member · Returning Member
+School / University
+Conditional Select
+If Student
+NC A&T · UNCG · Bennett College · Other · N/A
+How did you hear about us?
+Select
+No
+Google · YouTube · Friend / Family · Walked By · Other
+Home church (if any)
+Text
+No
+Helps identify transfers
+Interests
+Checkbox multi-select
+No
+Worship · Ministries · Volunteering · Giving · Events · Bible Study
+Message / Questions
+Textarea
+No
+Free text, 500 char limit
+Consent
+Checkbox
+Yes
+&quot;I agree to receive email communications from The Redeemer&quot;
+
+
+
+5.2  URL Parameter Tagging
+
+Forms should accept URL parameters to pre-select the interest type based on which page the user came from. This enables smart segmentation without extra user effort.
+Source URL
+URL Parameter
+Pre-fills Field
+/sign-up?interest=student
+interest=student
+I am a... = Student
+/church-near-ncat
+source=ncat
+How did you hear = NC A&T link
+/church-near-uncg
+source=uncg
+How did you hear = UNCG link
+/church-near-bennett-college
+source=bennett
+How did you hear = Bennett link
+/visit
+interest=visitor
+I am a... = Visitor
+
+
+
+5.3  CRM Tagging Logic
+
+When a form is submitted, the following tags should be automatically applied to the contact record in Zoho CRM (or equivalent):
+Field Value
+CRM Tag Applied
+List / Segment
+I am a Visitor
+tag:visitor
+new-visitors segment
+I am a Student + A&T
+tag:student, tag:ncat
+students-ncat segment
+I am a Student + UNCG
+tag:student, tag:uncg
+students-uncg segment
+I am a Student + Bennett
+tag:student, tag:bennett
+students-bennett segment
+I am a Member
+tag:member
+congregation segment
+Interest: Giving
+tag:donor-prospect
+giving-interest segment
+Interest: Volunteering
+tag:volunteer-prospect
+volunteer segment
+source=ncat (URL param)
+tag:source-ncat
+acquisition tracking
+
+
+
+5.4  Post-Submission Flow
+
+
+Confirmation page displayed with: &quot;Welcome to The Redeemer community!&quot; + service times + YouTube link
+
+
+Automated welcome email sent within 5 minutes (CRM trigger)
+
+
+If Student: Student-specific email with Sunday schedule and how to get there
+
+
+If Visitor: &quot;Plan Your First Visit&quot; email with parking, what to wear, what to expect
+
+
+All new contacts: Added to weekly newsletter list (with consent checkbox)
+
+
+Rector or staff notified via CRM notification for new &quot;Visitor&quot; sign-ups
+
+
+
+5.5  Zoho CRM Integration Spec
+
+??  Integration Method
+
+Preferred: Zoho Forms (native) embedded via iframe on /sign-up
+
+Alternative: Custom HTML form ? Zoho CRM Web-to-Lead API (POST)
+
+Endpoint: https://crm.zoho.com/crm/WebToLeadForm
+
+Required fields in POST: First Name, Last Name, Email, Lead Source, custom fields for interest type + school
+
+Webhook: Send POST data to Zoho + optionally to Mailchimp/Zoho Campaigns for email automation
+
+Test: Verify data maps correctly to CRM fields before launch
+
+
+SECTION 06   ?   Episcopal Church of The Redeemer
+
+Donation System Design & Messaging
+Page layout, trust architecture, copy strategy, and recurring giving emphasis
+
+
+
+6.1  Donation Page Layout (/donate)
+#
+Section
+Content
+A
+Hero Header
+&quot;Support the Mission of The Redeemer&quot; · Crimson background · Brief emotional headline
+B
+Impact Statement
+3 impact stats: Years of Service · Families Served · Ministries Funded
+C
+Giving Form
+Amount selector + One-time / Monthly toggle + Name + Email + Payment
+D
+Suggested Amounts
+$25 / $50 / $100 / $250 / Custom field
+E
+Trust Signals
+EIN displayed · Diocese affiliation · Secure payment badge · &quot;Tax-deductible&quot;
+F
+Capital Campaign
+Secondary section linking to /capital-campaign
+G
+Legacy Giving
+Brief mention of estate and planned giving
+H
+FAQ
+&quot;Is my donation tax-deductible?&quot; / &quot;How is my gift used?&quot; / &quot;Can I give in memory of someone?&quot;
+
+
+
+6.2  Donation Page Headline Copy Options
+
+??  Headline Variations (A/B test these)
+
+1. &quot;Your Gift Keeps a 115-Year Legacy Alive&quot;
+
+2. &quot;Give to The Redeemer — Invest in Faith, History & Community&quot;
+
+3. &quot;Support the Only African-American Episcopal Parish in Greensboro&quot;
+
+4. &quot;Every Dollar Uplifts the Kingdom of God in Greensboro&quot;
+
+
+
+6.3  Recurring Giving Emphasis
+
+Recurring (monthly) giving should be the DEFAULT selection on the form — not one-time. Research shows defaulting to monthly increases average lifetime donor value by 6–10x. Use framing like:
+
+
+&quot;Join our community of monthly supporters&quot; (not &quot;Set up automatic payments&quot;)
+
+
+&quot;$25/month keeps our ministries running year-round&quot;
+
+
+&quot;Cancel anytime&quot; reassurance — reduces friction for new donors
+
+
+Show annual impact of monthly amount: &quot;$25/month = $300/year supporting 12 active ministries&quot;
+
+
+
+6.4  Trust Architecture
+Trust Element
+Placement
+Implementation
+Church EIN / Tax ID
+Below form
+Static text
+Episcopal Diocese Affiliation
+Header or sidebar
+Logo + link to episdionc.org
+SSL / Security Badge
+Near payment fields
+Payment processor badge (Stripe/PayPal)
+&quot;Tax-deductible gift&quot; language
+Amount selector area
+Static copy
+Rector quote on giving
+Sidebar or above form
+Photo + pull quote
+Recent ministry impact
+Below form
+3 bullet points from current year
+
+
+
+6.5  Payment Processor Recommendation
+
+??  Recommended: Tithe.ly or Stripe
+
+Tithe.ly: Purpose-built for churches. Supports recurring giving, text-to-give, mobile app, CRM sync.
+
+  ? tithely.com — integrates with most church CMS platforms
+
+Stripe: Lower fees (2.2% + $0.30), more control, custom UI, developer-friendly.
+
+  ? stripe.com — requires more setup but more flexible
+
+PayPal: Easiest to set up, widely trusted by older donors. Higher fees.
+
+Recommendation: Start with Tithe.ly for ease. Graduate to Stripe for lower fees at scale.
+
+
+SECTION 07   ?   Episcopal Church of The Redeemer
+
+Video System Architecture
+Auto-embedded live stream, featured video logic, and future CMS management
+
+
+
+7.1  Current Problem
+
+The current implementation requires a click to load the video — a friction point that reduces engagement. The redesign must auto-embed the YouTube player on page load, defaulting to either the active livestream or the most recent service video.
+
+
+
+7.2  Technical Solution
+Scenario
+Behavior
+Implementation
+Sunday 10am (live)
+Player shows live stream
+YouTube live_stream API with Channel ID UCxxxxx
+Sunday (VOD, post-service)
+Player shows latest upload
+YouTube Data API v3: list latest video from channel
+Admin-specified video
+Player shows specific video
+CMS field: &quot;Featured Video ID&quot; overrides auto-logic
+No internet / API fail
+Fallback message + channel link
+Error handler shows: &quot;Watch on YouTube ?&quot;
+
+
+
+7.3  YouTube Data API Implementation
+
+To automatically load the latest video without a manual update each week:
+
+
+Register for YouTube Data API v3 key (free, Google Cloud Console)
+
+
+API call: GET https://www.googleapis.com/youtube/v3/search?channelId=CHANNEL_ID&order=date&type=video&maxResults=1&key=API_KEY
+
+
+Extract videoId from response ? build embed URL
+
+
+Cache result for 30 minutes to avoid rate limits
+
+
+For live detection: check snippet.liveBroadcastContent === &quot;live&quot;
+
+
+
+7.4  CMS Management
+
+???  Weekly Video Update Workflow (No Code Required)
+
+1. Staff logs into church website CMS
+
+2. Navigate to: Settings ? Video ? Featured Video
+
+3. Paste YouTube video ID or URL into the field
+
+4. Save — video auto-embeds on homepage and /live page
+
+5. Clear the field to return to auto-latest-video logic
+
+Note: This field should be clearly labeled and take less than 30 seconds to update
+
+
+SECTION 08   ?   Episcopal Church of The Redeemer
+
+SEO Strategy: Keywords, Schema & Internal Linking
+Full keyword map, page hierarchy, schema markup, and link architecture
+
+
+
+8.1  Primary Keyword Targets
+Keyword
+Monthly Volume (Est.)
+Difficulty
+Target Page
+Episcopal Church Greensboro NC
+200–400
+Low
+/episcopal-church-greensboro-nc
+Black Episcopal Church Greensboro
+50–150
+Very Low
+/black-episcopal-church-greensboro
+African American Episcopal church NC
+100–300
+Low
+/african-american-episcopal-church-nc
+Church near NC A&T
+50–200
+Very Low
+/church-near-ncat
+Church near UNCG
+50–150
+Very Low
+/church-near-uncg
+Church near Bennett College
+30–100
+Very Low
+/church-near-bennett-college
+Episcopal Church Greensboro
+200–500
+Low
+/ (homepage)
+Black church Greensboro NC
+100–300
+Medium
+/black-episcopal-church-greensboro
+Episcopal Church near me Greensboro
+100–200
+Low
+/ (local pack)
+Historic Black church NC
+50–150
+Low
+/history
+
+
+
+8.2  Google Business Profile (Critical)
+
+A fully optimized Google Business Profile is the single highest-ROI SEO action. Without it, the church cannot appear in the local map pack for &quot;Episcopal church Greensboro&quot; searches.
+
+
+Claim and verify: google.com/business
+
+
+Category: &quot;Episcopal Church&quot; (primary) + &quot;Church&quot; (secondary)
+
+
+Business name: Episcopal Church of The Redeemer
+
+
+Address: 901 E Friendly Ave, Greensboro, NC 27401
+
+
+Phone: (336) 275-0033
+
+
+Website: redeemerchurchgso.org (or new domain)
+
+
+Hours: Sunday 9:00am–12:00pm (service hours) + Office hours Mon–Fri
+
+
+Photos: Upload 10+ photos of exterior, interior, services, community events
+
+
+Posts: Update weekly with Sunday service info (boosts ranking signals)
+
+
+Description: Include keywords naturally — &quot;African-American Episcopal parish,&quot; &quot;Greensboro,&quot; &quot;NC A&T&quot;
+
+
+
+8.3  Schema Markup Recommendations
+Schema Type
+Apply To
+Key Fields
+LocalBusiness / Church
+All pages
+name, address, phone, url, openingHours, geo
+Organization
+Homepage, About
+name, url, logo, sameAs (Facebook, YouTube, Diocese)
+Event
+Services, Holy Week
+name, startDate, location, description
+FAQPage
+/visit, /donate, /worship
+Questions and answers in structured format
+BreadcrumbList
+All pages
+Hierarchy for rich results
+VideoObject
+/live, homepage
+YouTube embed with metadata
+HistoricalEvent / Article
+/history
+Historical content for enhanced display
+
+
+
+8.4  Internal Linking Architecture
+
+The hub-and-spoke model: the homepage and /history page link to all SEO spokes. The spokes cross-link to each other and back to core pages.
+
+??  Required Internal Links
+
+Homepage ? /black-episcopal-church-greensboro (in Students section or History section)
+
+Homepage ? /church-near-ncat, /church-near-uncg, /church-near-bennett-college (Students section)
+
+/history ? /black-episcopal-church-greensboro (strong topical link)
+
+/about ? /history, /ministries
+
+/church-near-ncat ? /church-near-uncg ? /church-near-bennett-college (cross-links)
+
+All SEO pages ? /sign-up, /visit, /worship
+
+Footer: Link to all 6 SEO pages (small but present)
+
+
+
+8.5  Content Calendar (First 90 Days)
+Month
+Content Priority
+SEO Goal
+Month 1
+Launch homepage, /history, /about, /visit, Google Business Profile
+Index all core pages, claim local pack
+Month 2
+Publish /black-episcopal-church-greensboro + /episcopal-church-greensboro-nc
+Rank for primary brand keywords
+Month 3
+Publish /church-near-ncat, /church-near-uncg, /church-near-bennett-college
+Capture student search traffic
+Ongoing
+Weekly Google Business posts, monthly blog post or ministry feature
+Build domain authority over time
+
+
+SECTION 09   ?   Episcopal Church of The Redeemer
+
+Design System: Colors, Typography & Layout
+Complete visual specification for developers and designers
+
+
+
+9.1  Color System
+Token Name
+Hex Value
+Usage
+--crimson
+#9B1B20
+Primary brand color · CTAs · Borders · Headers · Accents
+--crimson-hover
+#C0272D
+Hover state for crimson buttons
+--gold
+#C8962A
+Secondary accent · Section labels · Timeline markers · Icons
+--gold-light
+#E8B84B
+Hover state · Highlights · Subtitles
+--dark
+#0D0808
+Hero background · Footer · Dark sections
+--charcoal
+#181010
+Video section background · Secondary dark
+--panel
+#1E1414
+Card backgrounds · History section
+--warm-white
+#FDF8F0
+Primary text on dark · Light section backgrounds
+--parchment
+#F5EDE0
+About section · Rector section · Light alternating panels
+--muted
+#A08070
+Secondary text · Subheadings · Footer text
+--body-dark
+#3A2A20
+Body text on light backgrounds
+
+
+
+9.2  Typography System
+Role
+Font
+Weight
+Size
+Usage
+Display / Hero
+Cormorant Garamond
+700 Bold Italic
+48–96px
+Hero title, section name &quot;Redeemer&quot;
+Section Titles
+Cormorant Garamond
+700 Bold
+32–48px
+All H2 section headings
+Sub-headings
+Cormorant Garamond
+400 Italic
+20–28px
+Pull quotes, rector bio heading
+Body Copy
+DM Sans
+400 Regular
+15–17px
+All paragraph text
+UI Labels
+DM Sans
+700 Bold
+10–12px
+Section eyebrows, badges, button text
+Navigation
+DM Sans
+500 Medium
+12–14px
+Nav links, footer links
+Captions
+DM Sans
+300 Light
+11–13px
+Image captions, fine print
+
+
+
+9.3  Spacing & Layout System
+
+Use an 8px base grid throughout. Key spacing tokens:
+Token
+Value
+Usage
+--space-xs
+8px
+Icon gap, tight inline spacing
+--space-sm
+16px
+Paragraph spacing, card internal padding
+--space-md
+32px
+Section internal padding, component gaps
+--space-lg
+64px
+Section vertical padding
+--space-xl
+96px
+Major section separation
+--space-xxl
+128px
+Hero min-height buffer
+--max-width
+1120px
+Max content width, centered
+--nav-height
+70px
+Fixed nav height
+
+
+
+9.4  Component Inventory
+Component
+Variants
+Notes
+Button
+Primary (crimson), Secondary (gold outline), Ghost (white outline)
+Clip-path angled corners optional
+Card
+Service card, Ministry card, History card, Rector card
+Consistent hover: lift + gold border accent
+Section Header
+Label + Title + Rule
+Reused across all sections
+Video Player
+Auto-load, click-to-play fallback
+Gold border, crimson glow
+Announcement Banner
+Full-width crimson, configurable
+CMS-editable, hide/show toggle
+Form
+Sign-up (multi-field), Mini sign-up (inline)
+Accessible labels, validation
+Timeline
+Vertical with year markers
+Used on /history page
+Ministry Grid
+Card grid, icon + title + desc
+12 cards, responsive
+Stat Block
+Number + label, left border accent
+Used in About, History, Donate
+Map Embed
+Google Maps iframe, grayscale filter
+Contact + Visit pages
+
+
+
+9.5  Dark/Light Section Alternation
+
+The page should alternate between dark and light sections to create visual rhythm and prevent fatigue. Recommended order for homepage:
+Section
+Background
+Rationale
+Nav
+Dark (transparent ? solid)
+Authority, always present
+Hero
+Dark (--dark)
+Immersive, impactful opening
+Live Video
+Dark (--charcoal)
+Keeps viewer in immersive mode
+Identity Statement
+Light (--parchment)
+Visual break, trust-building content
+Service Times
+Dark (--dark)
+Back to brand energy
+Students Section
+Mid-dark (--panel)
+Warm but focused
+Ministries Preview
+Dark (--dark)
+Consistent dark third
+Mission Statement
+Crimson (--crimson)
+High-impact brand moment
+Rector Introduction
+Light (--parchment)
+Human, warm, personal
+History Teaser
+Dark (--panel)
+Gravitas for legacy content
+Sign Up Section
+Dark (--charcoal)
+Focused conversion zone
+Footer
+Dark (--dark)
+Clean close
+
+
+SECTION 10   ?   Episcopal Church of The Redeemer
+
+Codex Build Instructions
+Step-by-step implementation spec for developers building this system
+
+
+
+10.1  Technology Stack Recommendation
+Layer
+Recommended Option
+Why
+CMS
+WordPress + Elementor OR Webflow
+Easiest for church staff to maintain long-term
+Custom Build
+Next.js (React) + Tailwind CSS
+Best performance + SEO control if technical help available
+Static Option
+Single HTML file (current approach)
+Works now but hard to scale — plan migration
+Hosting
+Vercel (Next.js) OR WP Engine (WordPress)
+Fast, reliable, SSL included
+Domain
+redeemerchurchgso.org (keep current) OR redeemergreensboro.org
+Consider simpler domain for typing ease
+Email
+Zoho Mail OR Google Workspace
+For office@redeemerchurchgso.org
+CRM
+Zoho CRM (free tier available)
+Integrates with Zoho Forms, Zoho Campaigns
+Payments
+Tithe.ly (launch) ? Stripe (scale)
+Purpose-built then graduate
+Video
+YouTube + Data API v3
+Free, already in use, reliable
+Analytics
+Google Analytics 4 + Google Search Console
+Required from day one
+
+
+
+10.2  Build Order (Phased)
+
+
+
+Phase 1 — Foundation (Week 1–2)
+
+
+Set up CMS and hosting
+
+
+Apply design system: colors, fonts, spacing tokens
+
+
+Build Nav, Footer, and reusable components (Button, Card, Section Header)
+
+
+Build Homepage with all 13 sections (use placeholder content)
+
+
+Wire YouTube auto-embed on homepage
+
+
+Set up Google Analytics 4 and Search Console
+
+
+Submit to Google Business Profile
+
+
+
+Phase 2 — Core Pages (Week 2–3)
+
+
+Build: /about, /history, /worship, /visit, /ministries
+
+
+Build: /live, /calendar, /contact
+
+
+Add real content from existing site + this document
+
+
+Internal linking: all pages link to each other per Section 8.4
+
+
+Add schema markup to all core pages
+
+
+
+Phase 3 — Conversion (Week 3–4)
+
+
+Build /sign-up with full form and CRM integration
+
+
+Build /donate with payment processor integration
+
+
+Set up CRM tagging logic (Section 5.3)
+
+
+Set up post-submission email automation
+
+
+Build /capital-campaign page
+
+
+
+Phase 4 — SEO Pages (Week 4–5)
+
+
+Build all 6 SEO landing pages
+
+
+Add internal links from homepage, history, and about pages
+
+
+Submit sitemap to Google Search Console
+
+
+Begin weekly Google Business Profile posts
+
+
+
+Phase 5 — Polish & Launch (Week 5–6)
+
+
+Mobile responsiveness audit (all pages, all breakpoints)
+
+
+Accessibility audit (WCAG AA: alt text, contrast, focus states, ARIA labels)
+
+
+Performance audit (Lighthouse score target: 85+ on all metrics)
+
+
+Cross-browser testing (Chrome, Firefox, Safari, Edge)
+
+
+Redirect old URLs to new structure (301 redirects)
+
+
+Soft launch ? review with rector and board ? hard launch
+
+
+
+10.3  File & Component Structure (Next.js)
+
+??  Recommended Project Structure
+
+/src
+
+  /components
+
+    /layout — Nav.jsx, Footer.jsx, AnnouncementBanner.jsx
+
+    /ui — Button.jsx, Card.jsx, SectionHeader.jsx, StatBlock.jsx
+
+    /sections — Hero.jsx, LiveVideo.jsx, ServiceTimes.jsx, etc.
+
+    /forms — SignUpForm.jsx, DonateForm.jsx, MiniSignUp.jsx
+
+  /pages
+
+    index.jsx (homepage)
+
+    about.jsx, history.jsx, worship.jsx, visit.jsx, ministries.jsx
+
+    live.jsx, donate.jsx, sign-up.jsx, contact.jsx, calendar.jsx
+
+    black-episcopal-church-greensboro.jsx
+
+    episcopal-church-greensboro-nc.jsx
+
+    church-near-ncat.jsx, church-near-uncg.jsx, church-near-bennett-college.jsx
+
+  /lib
+
+    youtube.js — API helper for latest video fetch
+
+    crm.js — form submission handler
+
+  /styles
+
+    globals.css — CSS variables, base styles
+
+  /public
+
+    /images — church exterior, interior, rector photo, ministry photos
+
+
+
+10.4  Environment Variables Required
+Variable
+Source
+Used For
+YOUTUBE_API_KEY
+Google Cloud Console
+Fetch latest video from channel
+YOUTUBE_CHANNEL_ID
+YouTube Studio
+UCxxxxx — channel identifier
+ZOHO_WEBFORM_ID
+Zoho CRM
+Web-to-Lead form endpoint
+TITHELY_KEY (or STRIPE_KEY)
+Tithe.ly / Stripe dashboard
+Donation processing
+GA_MEASUREMENT_ID
+Google Analytics
+Analytics tracking
+NEXT_PUBLIC_RECAPTCHA_KEY
+Google reCAPTCHA
+Form spam protection
+
+
+
+10.5  SEO Checklist — Pre-Launch
+
+
+Every page has unique <title> tag (max 60 characters)
+
+
+Every page has unique meta description (max 160 characters)
+
+
+Every page has one H1 only — no duplicates
+
+
+All images have descriptive alt text
+
+
+XML sitemap generated and submitted to Google Search Console
+
+
+robots.txt configured — no pages blocked that should be indexed
+
+
+301 redirects in place from old URLs to new structure
+
+
+Canonical tags on all pages to prevent duplicate content
+
+
+Schema markup validated with Google&apos;s Rich Results Test
+
+
+Page speed: all pages score 85+ on Google PageSpeed Insights
+
+
+SSL certificate active (HTTPS on all pages)
+
+
+Google Business Profile claimed, verified, and fully completed
+
+
+Google Analytics 4 and Search Console verified and tracking
+
+
+
+
+
+
+?
+
+&quot;All have a place at Redeemer.&quot;
+
+Episcopal Church of The Redeemer · Greensboro, NC · Est. 1909
+
+
+
