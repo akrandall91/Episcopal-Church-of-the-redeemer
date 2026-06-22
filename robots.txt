@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /thank-you.html
+Disallow: /member-updates.html
+
+Sitemap: https://akrandall91.github.io/Episcopal-Church-of-the-redeemer/sitemap.xml
