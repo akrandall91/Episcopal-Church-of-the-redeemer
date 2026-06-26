@@ -37,7 +37,7 @@
     ["give","Give","give.html"],["contact","Contact","contact.html"]
   ];
   const header = document.querySelector("[data-site-header]");
-  if (header) header.innerHTML = `<header class="site-header"><div class="shell"><a class="brand" href="${href("index.html")}"><img class="brand-shield" src="${href("assets/images/logos/episcopal-shield.png")}" alt=""><span><strong>Church of the Redeemer</strong><small>Greensboro · Est. 1909</small></span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="nav" id="site-nav" aria-label="Primary">${links.map(([id,label,url])=>`<a ${page===id?'aria-current="page"':''} href="${href(url)}">${label}</a>`).join("")}<a class="nav-cta" href="${href("visit.html#visit-form")}">Plan a visit</a></nav></div></header>`;
+  if (header) header.innerHTML = `<header class="site-header"><div class="shell"><a class="brand" href="${href("index.html")}"><img class="redeemer-main-logo" src="${href("assets/images/brand/redeemer-main-logo.png")}" alt="Episcopal Church of the Redeemer"><span><strong>Church of the Redeemer</strong><small>Greensboro · Est. 1909</small></span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="nav" id="site-nav" aria-label="Primary">${links.map(([id,label,url])=>`<a ${page===id?'aria-current="page"':''} href="${href(url)}">${label}</a>`).join("")}<a class="nav-cta" href="${href("visit.html#visit-form")}">Plan a visit</a></nav></div></header>`;
   const footer = document.querySelector("[data-site-footer]");
   if (footer) footer.innerHTML = `<footer class="site-footer"><div class="shell"><div class="footer-grid"><div><a class="brand" href="${href("index.html")}"><img class="brand-shield brand-shield-ko" src="${href("assets/images/logos/episcopal-shield-ko.png")}" alt=""><span><strong>Church of the Redeemer</strong><small>Greensboro · Est. 1909</small></span></a><p>A historic Black Episcopal parish. A church home for every generation.</p><p>901 E Friendly Ave<br>Greensboro, NC 27401<br><a href="tel:+13362750033">(336) 275-0033</a></p></div><div><h3>Welcome</h3><ul><li><a href="${href("visit.html")}">Plan Your Visit</a></li><li><a href="${href("getting-here.html")}">Getting Here</a></li><li><a href="${href("students-families.html")}">Students & Families</a></li><li><a href="${href("calendar.html")}">Calendar</a></li><li><a href="${href("share-a-memory.html")}">Share a Memory</a></li></ul></div><div><h3>Worship & care</h3><ul><li><a href="${href("watch-live.html")}">Watch Live</a></li><li><a href="${href("prayer-request.html")}">Prayer Request</a></li><li><a href="${href("pastoral-care.html")}">Pastoral Care</a></li><li><a href="${href("volunteer.html")}">Volunteer</a></li><li><a href="${href("give.html")}">Give</a></li></ul></div><div><h3>Stay connected</h3><p>Sunday Holy Eucharist at 10:00 AM.<br>Church School at 9:00 AM.</p><a class="button button-light" href="${href("newsletter.html")}">Join our newsletter</a><p><a href="https://www.facebook.com/EpiscopalRedeemergso/">Facebook</a> · <a href="${config.youtubeChannelUrl || "#"}">YouTube</a></p><img class="tec-footer-logo" src="${href("assets/images/logos/episcopal-church-horizontal-ko.png")}" alt="The Episcopal Church"></div></div><p class="episcopal-identity">A congregation of the Episcopal Diocese of North Carolina, The Episcopal Church, and the Anglican Communion.</p><div class="footer-bottom"><p>© 2026 Episcopal Church of the Redeemer</p><p><a href="${href("privacy.html")}">Privacy</a> · <a href="${href("member-updates.html")}">Member updates</a></p></div></div></footer>`;
   const menu = document.querySelector(".menu-button");
@@ -84,41 +84,26 @@
   document.querySelectorAll(".reveal,.stagger").forEach(el => observer.observe(el));
   document.querySelectorAll("[data-progress]").forEach(el => { const value=el.dataset.progress; el.style.setProperty("--progress",`${value}%`); const bar=el.querySelector(".progress-track i"); const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){bar.style.width=`${value}%`;io.disconnect()}}));io.observe(el); });
   const cinematicHero = document.querySelector(".cinematic-hero");
-  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-  if (cinematicHero && reducedMotion.matches) {
-    cinematicHero.querySelector("video")?.pause();
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (cinematicHero && reduceMotion) {
+    cinematicHero.querySelector(".hero-video")?.pause();
   }
-  if (cinematicHero && matchMedia("(pointer: fine)").matches && !reducedMotion.matches) {
-    cinematicHero.addEventListener("pointermove", event => {
-      const rect = cinematicHero.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      cinematicHero.style.setProperty("--mx", `${x}%`);
-      cinematicHero.style.setProperty("--my", `${y}%`);
-      cinematicHero.style.setProperty("--hero-x", `${x}%`);
-      cinematicHero.style.setProperty("--hero-y", `${y}%`);
-      cinematicHero.style.setProperty("--parallax-x", `${(x - 50) * -0.06}px`);
-      cinematicHero.style.setProperty("--parallax-y", `${(y - 50) * -0.08}px`);
-    }, {passive:true});
-  }
-  if (cinematicHero && !reducedMotion.matches) {
+  if (cinematicHero && !reduceMotion) {
     const heroVideo = cinematicHero.querySelector(".hero-video");
+    const heroContent = cinematicHero.querySelector(".hero-content");
     const cue = cinematicHero.querySelector(".scroll-cue");
-    const syncHeroScroll = () => {
+    const updateHeroScroll = () => {
       const rect = cinematicHero.getBoundingClientRect();
       const progress = Math.min(1, Math.max(0, Math.abs(rect.top) / cinematicHero.offsetHeight));
-      cinematicHero.style.setProperty("--scroll-scale", String(1.06 + progress * 0.1));
-      cinematicHero.style.setProperty("--scroll-y", `${progress * -22}px`);
-      cinematicHero.style.setProperty("--headline-opacity", String(Math.max(0, 1 - progress * 1.35)));
-      cinematicHero.style.setProperty("--headline-y", `${progress * -18}px`);
-      if (heroVideo && progress > 0.01) heroVideo.style.animation = "none";
-      if (cue) {
-        if (progress > 0.01) cue.style.animation = "none";
-        cue.style.opacity = String(Math.max(0, 1 - progress * 4));
+      if (heroVideo) heroVideo.style.transform = `scale(${1.04 + progress * 0.08}) translateY(${progress * 18}px)`;
+      if (heroContent) {
+        heroContent.style.transform = `translateY(${progress * -28}px)`;
+        heroContent.style.opacity = String(1 - progress * 0.45);
       }
+      if (cue) cue.style.opacity = String(Math.max(0, 1 - progress * 5));
     };
-    addEventListener("scroll", syncHeroScroll, {passive:true});
-    syncHeroScroll();
+    addEventListener("scroll", updateHeroScroll, {passive:true});
+    updateHeroScroll();
   }
   document.querySelectorAll("[data-youtube-embed]").forEach(el => {
     if (!config.youtubeEmbedUrl) return;
