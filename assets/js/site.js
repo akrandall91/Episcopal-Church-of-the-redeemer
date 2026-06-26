@@ -93,11 +93,30 @@
       const rect = cinematicHero.getBoundingClientRect();
       const x = ((event.clientX - rect.left) / rect.width) * 100;
       const y = ((event.clientY - rect.top) / rect.height) * 100;
+      cinematicHero.style.setProperty("--mx", `${x}%`);
+      cinematicHero.style.setProperty("--my", `${y}%`);
       cinematicHero.style.setProperty("--hero-x", `${x}%`);
       cinematicHero.style.setProperty("--hero-y", `${y}%`);
       cinematicHero.style.setProperty("--parallax-x", `${(x - 50) * -0.06}px`);
       cinematicHero.style.setProperty("--parallax-y", `${(y - 50) * -0.08}px`);
     }, {passive:true});
+  }
+  if (cinematicHero && !reducedMotion.matches) {
+    const heroVideo = cinematicHero.querySelector(".hero-video");
+    const cue = cinematicHero.querySelector(".scroll-cue");
+    const syncHeroScroll = () => {
+      const rect = cinematicHero.getBoundingClientRect();
+      const progress = Math.min(1, Math.max(0, Math.abs(rect.top) / cinematicHero.offsetHeight));
+      cinematicHero.style.setProperty("--scroll-scale", String(1.08 + progress * 0.08));
+      cinematicHero.style.setProperty("--scroll-y", `${progress * 18}px`);
+      if (heroVideo && progress > 0.01) heroVideo.style.animation = "none";
+      if (cue) {
+        if (progress > 0.01) cue.style.animation = "none";
+        cue.style.opacity = String(Math.max(0, 1 - progress * 4));
+      }
+    };
+    addEventListener("scroll", syncHeroScroll, {passive:true});
+    syncHeroScroll();
   }
   document.querySelectorAll("[data-youtube-embed]").forEach(el => {
     if (!config.youtubeEmbedUrl) return;
