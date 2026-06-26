@@ -83,6 +83,22 @@
   const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add("is-visible");observer.unobserve(e.target)}}), {threshold:.13});
   document.querySelectorAll(".reveal,.stagger").forEach(el => observer.observe(el));
   document.querySelectorAll("[data-progress]").forEach(el => { const value=el.dataset.progress; el.style.setProperty("--progress",`${value}%`); const bar=el.querySelector(".progress-track i"); const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){bar.style.width=`${value}%`;io.disconnect()}}));io.observe(el); });
+  const cinematicHero = document.querySelector(".cinematic-hero");
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  if (cinematicHero && reducedMotion.matches) {
+    cinematicHero.querySelector("video")?.pause();
+  }
+  if (cinematicHero && matchMedia("(pointer: fine)").matches && !reducedMotion.matches) {
+    cinematicHero.addEventListener("pointermove", event => {
+      const rect = cinematicHero.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      cinematicHero.style.setProperty("--hero-x", `${x}%`);
+      cinematicHero.style.setProperty("--hero-y", `${y}%`);
+      cinematicHero.style.setProperty("--parallax-x", `${(x - 50) * -0.06}px`);
+      cinematicHero.style.setProperty("--parallax-y", `${(y - 50) * -0.08}px`);
+    }, {passive:true});
+  }
   document.querySelectorAll("[data-youtube-embed]").forEach(el => {
     if (!config.youtubeEmbedUrl) return;
     const frame = document.createElement("iframe");
