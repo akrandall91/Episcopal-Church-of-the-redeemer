@@ -383,3 +383,152 @@ body[data-page="home"] .site-header.is-fixed{color:var(--espresso);border-color:
     transform:none;
   }
 }
+.cinematic-hero{
+  --brand-red:#dd1c25;
+  --brand-blue:#a1cfe8;
+  --brand-navy:#162b62;
+  --brand-purple:#8267c2;
+  --brand-cream:#fef2a1;
+  --headline-opacity:1;
+  --headline-y:0px;
+  --scroll-scale:1.06;
+  background:#102450;
+}
+.cinematic-hero::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:55%;
+  z-index:3;
+  width:min(46vw,520px);
+  aspect-ratio:1;
+  pointer-events:none;
+  background:url("../images/brand/redeemer-logo-mark.png") center/contain no-repeat;
+  opacity:.105;
+  filter:drop-shadow(0 0 38px rgba(161,207,232,.42)) drop-shadow(0 0 70px rgba(254,242,161,.2));
+  transform:translate(-50%,-50%);
+  mix-blend-mode:screen;
+}
+.cinematic-hero .hero-video{
+  filter:saturate(1.16) contrast(1.04) brightness(.88);
+  transform:scale(var(--scroll-scale)) translate3d(0,var(--scroll-y),0);
+}
+.cinematic-hero .hero-media:after{
+  background:
+    radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,.2),transparent 19rem),
+    radial-gradient(circle at 50% 43%,rgba(254,242,161,.22),transparent 24%),
+    radial-gradient(circle at 39% 38%,rgba(161,207,232,.22),transparent 31%),
+    radial-gradient(circle at 68% 46%,rgba(130,103,194,.28),transparent 28%),
+    radial-gradient(circle at 54% 70%,rgba(221,28,37,.18),transparent 22%);
+  mix-blend-mode:screen;
+}
+.cinematic-hero .hero-shade{
+  background:
+    linear-gradient(180deg,rgba(8,18,38,.24),rgba(8,18,38,.5) 72%,rgba(8,18,38,.62)),
+    linear-gradient(90deg,rgba(8,18,38,.45),rgba(8,18,38,.18) 48%,rgba(8,18,38,.42));
+}
+.cinematic-hero .hero-shade:before,
+.cinematic-hero .hero-shade:after{
+  content:"";
+  position:absolute;
+  inset:-18% -12%;
+  pointer-events:none;
+}
+.cinematic-hero .hero-shade:before{
+  background:
+    conic-gradient(from 205deg at 62% 0%,transparent 0 12deg,rgba(254,242,161,.2) 18deg,transparent 27deg,rgba(161,207,232,.14) 38deg,transparent 52deg,rgba(130,103,194,.16) 65deg,transparent 82deg);
+  filter:blur(10px);
+  opacity:.75;
+  animation:lightRayDrift 24s ease-in-out infinite alternate;
+  mix-blend-mode:screen;
+}
+.cinematic-hero .hero-shade:after{
+  background:
+    linear-gradient(115deg,transparent 0 35%,rgba(254,242,161,.18) 42%,transparent 50%),
+    linear-gradient(128deg,transparent 0 52%,rgba(161,207,232,.15) 58%,transparent 66%);
+  opacity:.55;
+  transform-origin:70% 0;
+  animation:lightRayBreath 18s ease-in-out infinite alternate;
+  mix-blend-mode:screen;
+}
+.cinematic-hero .hero-vignette{
+  background:
+    radial-gradient(circle at 50% 45%,rgba(254,242,161,.14),transparent 25%),
+    radial-gradient(circle at center,transparent 38%,rgba(2,9,24,.36) 78%,rgba(2,9,24,.58) 100%);
+}
+.cinematic-hero .hero-glass{
+  background:
+    linear-gradient(135deg,rgba(161,207,232,.28),rgba(130,103,194,.2) 38%,rgba(254,242,161,.16) 66%,rgba(221,28,37,.12)),
+    linear-gradient(45deg,transparent 0 42%,rgba(255,255,255,.14) 43% 45%,transparent 46%);
+  opacity:.62;
+  animation:glassFloat 22s ease-in-out infinite alternate;
+}
+.cinematic-hero .hero-glass-one{left:-6vw;bottom:8vh}
+.cinematic-hero .hero-glass-two{right:-8vw;top:10vh}
+.cinematic-hero .hero-particles i{
+  background:rgba(254,242,161,.72);
+  box-shadow:0 0 16px rgba(254,242,161,.75),0 0 30px rgba(161,207,232,.32);
+  opacity:.72;
+}
+.cinematic-hero::after{
+  background:
+    radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,.18),transparent 18rem),
+    radial-gradient(circle at 50% 46%,rgba(254,242,161,.18),transparent 18rem);
+  opacity:.7;
+}
+.cinematic-hero h1{
+  opacity:var(--headline-opacity);
+  transform:translateY(var(--headline-y));
+  text-shadow:0 14px 46px rgba(0,0,0,.58),0 0 48px rgba(254,242,161,.2),0 0 80px rgba(161,207,232,.14);
+}
+.cinematic-hero .hero-lead{
+  color:rgba(255,255,255,.94);
+  text-shadow:0 10px 28px rgba(0,0,0,.52),0 0 32px rgba(161,207,232,.16);
+}
+.cinematic-hero .button-primary{
+  background:var(--brand-red);
+}
+.cinematic-hero .button-primary:hover{
+  background:#b9151d;
+}
+.cinematic-hero .button-light{
+  background:rgba(255,255,255,.92);
+  border-color:rgba(254,242,161,.68);
+}
+.cinematic-hero .service-note{
+  background:rgba(22,43,98,.34);
+  border-color:rgba(254,242,161,.28);
+  box-shadow:0 0 34px rgba(161,207,232,.12),inset 0 0 24px rgba(255,255,255,.06);
+}
+@keyframes lightRayDrift{
+  from{transform:translate3d(-1%,0,0) rotate(-1deg);opacity:.58}
+  to{transform:translate3d(1.5%,1%,0) rotate(2deg);opacity:.86}
+}
+@keyframes lightRayBreath{
+  from{transform:scale(1) rotate(-1deg);opacity:.42}
+  to{transform:scale(1.05) rotate(1.5deg);opacity:.7}
+}
+@media(max-width:760px){
+  .cinematic-hero::before{
+    width:min(82vw,390px);
+    top:49%;
+    opacity:.08;
+  }
+  .cinematic-hero .hero-video{
+    filter:saturate(1.12) contrast(1.02) brightness(.78);
+  }
+  .cinematic-hero .hero-shade{
+    background:
+      linear-gradient(180deg,rgba(8,18,38,.32),rgba(8,18,38,.58)),
+      linear-gradient(90deg,rgba(8,18,38,.5),rgba(8,18,38,.22),rgba(8,18,38,.48));
+  }
+  .cinematic-hero .hero-vignette{
+    background:radial-gradient(circle at 50% 42%,rgba(254,242,161,.12),transparent 22%),radial-gradient(circle at center,transparent 42%,rgba(2,9,24,.5) 100%);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .cinematic-hero .hero-shade:before,
+  .cinematic-hero .hero-shade:after{
+    animation:none!important;
+  }
+}

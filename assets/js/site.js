@@ -107,8 +107,10 @@
     const syncHeroScroll = () => {
       const rect = cinematicHero.getBoundingClientRect();
       const progress = Math.min(1, Math.max(0, Math.abs(rect.top) / cinematicHero.offsetHeight));
-      cinematicHero.style.setProperty("--scroll-scale", String(1.08 + progress * 0.08));
-      cinematicHero.style.setProperty("--scroll-y", `${progress * 18}px`);
+      cinematicHero.style.setProperty("--scroll-scale", String(1.06 + progress * 0.1));
+      cinematicHero.style.setProperty("--scroll-y", `${progress * -22}px`);
+      cinematicHero.style.setProperty("--headline-opacity", String(Math.max(0, 1 - progress * 1.35)));
+      cinematicHero.style.setProperty("--headline-y", `${progress * -18}px`);
       if (heroVideo && progress > 0.01) heroVideo.style.animation = "none";
       if (cue) {
         if (progress > 0.01) cue.style.animation = "none";
