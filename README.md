@@ -58,7 +58,7 @@ Netlify Forms, Vercel/serverless, or Google Apps Script can be added as alternat
 
 ## Forms
 
-Twelve form types submit through one abstraction:
+Thirteen form types submit through one abstraction:
 
 - visit
 - prayer
@@ -72,6 +72,7 @@ Twelve form types submit through one abstraction:
 - contact
 - newsletter
 - share a memory
+- service participation
 
 See `docs/forms-and-data.md`.
 
@@ -166,4 +167,3 @@ The site includes semantic landmarks, skip links, labels, visible focus behavior
 ## Launch
 
 Follow `docs/launch-checklist.md`. Do not publish confidential submissions, unverified campaign figures, uncertain preservation status, or private member information.
-

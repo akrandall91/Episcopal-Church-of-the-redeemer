@@ -33,8 +33,8 @@
   }
   const links = [
     ["visit","Visit","visit.html"],["worship","Worship","worship.html"],["watch","Watch Live","watch-live.html"],
-    ["ministries","Ministries","ministries.html"],["history","History","history.html"],["getting-here","Getting Here","getting-here.html"],
-    ["give","Give","give.html"],["contact","Contact","contact.html"]
+    ["ministries","Connect & Serve","ministries.html"],["history","Our Story","history.html"],
+    ["calendar","Events","calendar.html"],["give","Give","give.html"],["contact","Contact","contact.html"]
   ];
   const header = document.querySelector("[data-site-header]");
   if (header) header.innerHTML = `<header class="site-header"><div class="shell"><a class="brand" href="${href("index.html")}"><img class="redeemer-main-logo" src="${href("assets/images/brand/redeemer-main-logo.png")}" alt="Episcopal Church of the Redeemer"><span><strong>Church of the Redeemer</strong><small>Greensboro · Est. 1909</small></span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="nav" id="site-nav" aria-label="Primary">${links.map(([id,label,url])=>`<a ${page===id?'aria-current="page"':''} href="${href(url)}">${label}</a>`).join("")}<a class="nav-cta" href="${href("visit.html#visit-form")}">Plan a visit</a></nav></div></header>`;
@@ -42,15 +42,6 @@
   if (footer) footer.innerHTML = `<footer class="site-footer"><div class="shell"><div class="footer-grid"><div><a class="brand" href="${href("index.html")}"><img class="brand-shield brand-shield-ko" src="${href("assets/images/logos/episcopal-shield-ko.png")}" alt=""><span><strong>Church of the Redeemer</strong><small>Greensboro · Est. 1909</small></span></a><p>A historic Black Episcopal parish. A church home for every generation.</p><p>901 E Friendly Ave<br>Greensboro, NC 27401<br><a href="tel:+13362750033">(336) 275-0033</a></p></div><div><h3>Welcome</h3><ul><li><a href="${href("visit.html")}">Plan Your Visit</a></li><li><a href="${href("getting-here.html")}">Getting Here</a></li><li><a href="${href("students-families.html")}">Students & Families</a></li><li><a href="${href("calendar.html")}">Calendar</a></li><li><a href="${href("share-a-memory.html")}">Share a Memory</a></li></ul></div><div><h3>Worship & care</h3><ul><li><a href="${href("watch-live.html")}">Watch Live</a></li><li><a href="${href("prayer-request.html")}">Prayer Request</a></li><li><a href="${href("pastoral-care.html")}">Pastoral Care</a></li><li><a href="${href("volunteer.html")}">Volunteer</a></li><li><a href="${href("give.html")}">Give</a></li></ul></div><div><h3>Stay connected</h3><p>Sunday Holy Eucharist at 10:00 AM.<br>Church School at 9:00 AM.</p><a class="button button-light" href="${href("newsletter.html")}">Join our newsletter</a><p><a href="https://www.facebook.com/EpiscopalRedeemergso/">Facebook</a> · <a href="${config.youtubeChannelUrl || "#"}">YouTube</a></p><img class="tec-footer-logo" src="${href("assets/images/logos/episcopal-church-horizontal-ko.png")}" alt="The Episcopal Church"></div></div><p class="episcopal-identity">A congregation of the Episcopal Diocese of North Carolina, The Episcopal Church, and the Anglican Communion.</p><div class="footer-bottom"><p>© 2026 Episcopal Church of the Redeemer</p><p><a href="${href("privacy.html")}">Privacy</a> · <a href="${href("member-updates.html")}">Member updates</a></p></div></div></footer>`;
   const menu = document.querySelector(".menu-button");
   let mobileTrigger = null;
-  if (innerWidth <= 980) {
-    mobileTrigger=document.createElement("button");
-    mobileTrigger.type="button";
-    mobileTrigger.className="mobile-menu-trigger";
-    mobileTrigger.setAttribute("aria-expanded","false");
-    mobileTrigger.setAttribute("aria-controls","site-nav");
-    mobileTrigger.textContent="Menu";
-    document.body.appendChild(mobileTrigger);
-  }
   const positionMobileMenu = () => {
     if (!menu) return;
     if (innerWidth <= 980) {
@@ -113,6 +104,19 @@
     frame.loading = "lazy";
     frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     frame.allowFullscreen = true;
+    el.replaceChildren(frame);
+  });
+  document.querySelectorAll("[data-youtube-gallery]").forEach(el => {
+    el.href = config.youtubeUploadsUrl || config.youtubeChannelUrl || "#";
+  });
+  if (location.hash === "#expect") document.querySelector("#service")?.scrollIntoView();
+  document.querySelectorAll("[data-calendar-embed]").forEach(el => {
+    if (!config.googleCalendarEmbedUrl) {
+      el.innerHTML = `<div class="calendar-empty"><span>Calendar connection ready</span><h3>See Redeemer's current public calendar.</h3><p>Add the verified Google Calendar embed address in <code>assets/js/config.js</code> to display events here automatically.</p><a class="button button-primary" href="${config.googleCalendarUrl || "https://redeemerchurchgso.org/calendar-of-events/"}">Open current calendar</a></div>`;
+      return;
+    }
+    const frame=document.createElement("iframe");
+    frame.src=config.googleCalendarEmbedUrl; frame.title="Redeemer events calendar"; frame.loading="lazy";
     el.replaceChildren(frame);
   });
 })();

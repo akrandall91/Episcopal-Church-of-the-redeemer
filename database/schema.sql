@@ -30,7 +30,7 @@ with check (
   form_type in (
     'visit','prayer','pastoral_care','volunteer','ministry_interest',
     'student_family','transportation','campaign_pledge','partner',
-    'contact','newsletter','memory'
+    'contact','newsletter','memory','service_participation'
   )
   and status = 'new'
 );
@@ -47,4 +47,3 @@ for each row execute function public.set_updated_at();
 
 -- Do not add public SELECT/UPDATE/DELETE policies.
 -- Use authenticated admin roles or server-side functions for dashboard access.
-

@@ -29,6 +29,7 @@ The unified `form_submissions` table stores:
 - contact
 - newsletter
 - memory
+- service_participation
 
 ## Production requirements
 
@@ -48,4 +49,3 @@ The abstraction can be extended for Netlify Forms, a Vercel/serverless endpoint,
 ## Local development
 
 When credentials are blank, forms remain fully navigable and validatable, then show a configuration warning with the church phone number. They do not store data locally or imply delivery.
-
