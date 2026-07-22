@@ -8,13 +8,6 @@
   light.className = "cursor-light";
   light.setAttribute("aria-hidden", "true");
   document.body.appendChild(light);
-  if (document.querySelector(".cinematic-hero")) {
-    const glass = document.createElement("div");
-    glass.className = "living-glass";
-    glass.setAttribute("aria-hidden", "true");
-    glass.innerHTML = '<i></i><i></i><i></i><i></i><i></i><i></i>';
-    document.querySelector(".cinematic-hero")?.appendChild(glass);
-  }
   const config = window.REDEEMER_CONFIG || {};
   const onPages = location.protocol === "file:" ? "" : (location.pathname.includes("/Episcopal-Church-of-the-redeemer/") ? config.basePath : "/");
   const href = page => `${onPages}${page}`;
@@ -120,13 +113,18 @@
     const cue = cinematicHero.querySelector(".scroll-cue");
     const updateHeroScroll = () => {
       const rect = cinematicHero.getBoundingClientRect();
-      const progress = Math.min(1, Math.max(0, Math.abs(rect.top) / cinematicHero.offsetHeight));
-      if (heroVideo) heroVideo.style.transform = `scale(${1.04 + progress * 0.08}) translateY(${progress * 18}px)`;
-      if (heroContent) {
-        heroContent.style.transform = `translateY(${progress * -28}px)`;
-        heroContent.style.opacity = String(1 - progress * 0.45);
+      const travel = Math.max(1, cinematicHero.offsetHeight - innerHeight);
+      const progress = Math.min(1, Math.max(0, -rect.top / travel));
+      cinematicHero.style.setProperty("--hero-progress", progress.toFixed(3));
+      if (heroVideo) {
+        heroVideo.style.transform = `scale(${1.035 + progress * 0.13}) translate3d(0,${progress * 34}px,0)`;
+        heroVideo.style.filter = `saturate(${1.18 - progress * .2}) contrast(${1.08 + progress * .08}) brightness(${.58 - progress * .13})`;
       }
-      if (cue) cue.style.opacity = String(Math.max(0, 1 - progress * 5));
+      if (heroContent) {
+        heroContent.style.transform = `translate3d(0,${progress * -72}px,0) scale(${1 - progress * .025})`;
+        heroContent.style.opacity = String(Math.max(.08, 1 - progress * .92));
+      }
+      if (cue) cue.style.opacity = String(Math.max(0, 1 - progress * 4));
     };
     addEventListener("scroll", updateHeroScroll, {passive:true});
     updateHeroScroll();
