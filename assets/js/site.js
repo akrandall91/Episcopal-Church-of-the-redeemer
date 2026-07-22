@@ -12,6 +12,11 @@
   const onPages = location.protocol === "file:" ? "" : (location.pathname.includes("/Episcopal-Church-of-the-redeemer/") ? config.basePath : "/");
   const href = page => `${onPages}${page}`;
   const page = document.body.dataset.page || "";
+  if (page === "history") document.querySelector(".legacy-home .giant-year")?.replaceChildren("1906");
+  if (page === "about") {
+    document.querySelector(".page-hero .shell > p:last-child")?.replaceChildren("Greensboro's historic Black Episcopal parish—worshipping, serving, and carrying faith forward since 1906.");
+    document.querySelector('meta[name="description"]')?.setAttribute("content", "Meet Episcopal Church of the Redeemer, Greensboro's historic African-American Episcopal parish, rooted in a mission vision established in 1906.");
+  }
   if (!document.querySelector('link[rel="canonical"]') && location.protocol !== "file:") {
     const canonical = document.createElement("link");
     canonical.rel = "canonical";
@@ -47,7 +52,9 @@
   const header = document.querySelector("[data-site-header]");
   if (header) header.innerHTML = `<header class="site-header"><div class="shell"><a class="brand" href="${href("index.html")}"><img class="redeemer-main-logo" src="${href("assets/images/brand/redeemer-main-logo.png")}" alt="Episcopal Church of the Redeemer"><span><strong>Church of the Redeemer</strong><small>Greensboro · Est. 1909</small></span></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button><nav class="nav" id="site-nav" aria-label="Primary">${links.map(([id,label,url])=>`<a ${page===id?'aria-current="page"':''} href="${href(url)}">${label}</a>`).join("")}<a class="nav-cta" href="${href("visit.html#visit-form")}">Plan a visit</a></nav></div></header>`;
   const footer = document.querySelector("[data-site-footer]");
+  header?.querySelector(".brand small")?.replaceChildren("Greensboro · Est. 1906");
   if (footer) footer.innerHTML = `<footer class="site-footer"><div class="shell"><div class="footer-grid"><div><a class="brand" href="${href("index.html")}"><img class="brand-shield brand-shield-ko" src="${href("assets/images/logos/episcopal-shield-ko.png")}" alt=""><span><strong>Church of the Redeemer</strong><small>Greensboro · Est. 1909</small></span></a><p>A historic Black Episcopal parish. A church home for every generation.</p><p>901 E Friendly Ave<br>Greensboro, NC 27401<br><a href="tel:+13362750033">(336) 275-0033</a></p></div><div><h3>Welcome</h3><ul><li><a href="${href("visit.html")}">Plan Your Visit</a></li><li><a href="${href("getting-here.html")}">Getting Here</a></li><li><a href="${href("students-families.html")}">Students & Families</a></li><li><a href="${href("calendar.html")}">Calendar</a></li><li><a href="${href("share-a-memory.html")}">Share a Memory</a></li></ul></div><div><h3>Worship & care</h3><ul><li><a href="${href("watch-live.html")}">Watch Live</a></li><li><a href="${href("prayer-request.html")}">Prayer Request</a></li><li><a href="${href("pastoral-care.html")}">Pastoral Care</a></li><li><a href="${href("volunteer.html")}">Volunteer</a></li><li><a href="${href("give.html")}">Give</a></li></ul></div><div><h3>Stay connected</h3><p>Sunday Holy Eucharist at 10:00 AM.<br>Church School at 9:00 AM.</p><a class="button button-light" href="${href("newsletter.html")}">Join our newsletter</a><p><a href="https://www.facebook.com/EpiscopalRedeemergso/">Facebook</a> · <a href="${config.youtubeChannelUrl || "#"}">YouTube</a></p><img class="tec-footer-logo" src="${href("assets/images/logos/episcopal-church-horizontal-ko.png")}" alt="The Episcopal Church"></div></div><p class="episcopal-identity">A congregation of the Episcopal Diocese of North Carolina, The Episcopal Church, and the Anglican Communion.</p><div class="footer-bottom"><p>© 2026 Episcopal Church of the Redeemer</p><p><a href="${href("privacy.html")}">Privacy</a> · <a href="${href("member-updates.html")}">Member updates</a></p></div></div></footer>`;
+  footer?.querySelector(".brand small")?.replaceChildren("Greensboro · Est. 1906");
   const menu = document.querySelector(".menu-button");
   let mobileTrigger = null;
   if (matchMedia("(max-width: 980px)").matches) {
