@@ -12,6 +12,6 @@ window.REDEEMER_CONFIG = {
   googleCalendarUrl: "https://redeemerchurchgso.org/calendar-of-events/",
   squareGivingUrl: "",
   zelleRecipient: "episcopalchurchoftheredeemer - 743-281-2001",
-  campaignGoal: 1000000,
-  campaignRaised: 640000
+  campaignGoal: 200000,
+  campaignRaised: 147832.49
 };
