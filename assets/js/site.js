@@ -137,4 +137,27 @@
     frame.src=config.googleCalendarEmbedUrl; frame.title="Redeemer events calendar"; frame.loading="lazy";
     el.replaceChildren(frame);
   });
+  document.querySelectorAll("[data-upcoming-calendar]").forEach(el => {
+    if (!config.googleCalendarEmbedUrl) return;
+    const pad = value => String(value).padStart(2, "0");
+    const calendarDate = date => `${date.getFullYear()}${pad(date.getMonth() + 1)}${pad(date.getDate())}`;
+    const start = new Date();
+    const end = new Date(start);
+    end.setDate(end.getDate() + 10);
+    const url = new URL(config.googleCalendarEmbedUrl);
+    url.searchParams.set("mode", "AGENDA");
+    url.searchParams.set("dates", `${calendarDate(start)}/${calendarDate(end)}`);
+    url.searchParams.set("showTitle", "0");
+    url.searchParams.set("showNav", "0");
+    url.searchParams.set("showDate", "0");
+    url.searchParams.set("showPrint", "0");
+    url.searchParams.set("showTabs", "0");
+    url.searchParams.set("showCalendars", "0");
+    url.searchParams.set("showTz", "0");
+    const frame = document.createElement("iframe");
+    frame.src = url.href;
+    frame.title = "Redeemer events during the next 10 days";
+    frame.loading = "eager";
+    el.replaceChildren(frame);
+  });
 })();
