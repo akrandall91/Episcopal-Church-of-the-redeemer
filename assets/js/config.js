@@ -3,6 +3,8 @@ window.REDEEMER_CONFIG = {
   supabaseUrl: "",
   supabaseAnonKey: "",
   submissionsTable: "form_submissions",
+  googleSheetsWebAppUrl: "",
+  analyticsEnabled: true,
   youtubeChannelUrl: "https://www.youtube.com/channel/UCohOBrKaSFQ0-m4cmZ3X6GA",
   youtubeEmbedUrl: "https://www.youtube.com/embed/live_stream?channel=UCohOBrKaSFQ0-m4cmZ3X6GA",
   youtubeUploadsUrl: "https://www.youtube.com/playlist?list=PLKxlEPTu8ZsY",

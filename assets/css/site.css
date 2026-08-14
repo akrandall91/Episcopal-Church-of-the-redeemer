@@ -12,6 +12,9 @@ html,body{overflow-x:hidden}
 .photo-panel{position:relative;overflow:hidden;background:#dce8f3;min-height:420px}
 .photo-panel img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform 1.2s ease}
 .photo-panel:hover img{transform:scale(1.025)}
+.historical-photo-panel{display:grid;place-items:center;min-height:560px;margin:0;padding:38px 38px 72px;background:linear-gradient(145deg,#e9dfca,#cbb999)}.historical-photo-panel img{position:relative;inset:auto;width:auto;max-width:100%;height:100%;max-height:470px;object-fit:contain;filter:sepia(.12) contrast(1.04);box-shadow:0 22px 55px rgba(29,22,18,.2)}.historical-photo-panel figcaption{position:absolute;left:28px;right:28px;bottom:18px;z-index:1;color:#594a3f;font-size:.7rem;letter-spacing:.06em;text-align:center}.early-leaders{background:#eef4fb}.early-leaders .simple-cards{grid-template-columns:repeat(3,1fr)}
+@media(max-width:980px){.early-leaders .simple-cards{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.historical-photo-panel{min-height:500px;padding:28px 28px 68px}.early-leaders .simple-cards{grid-template-columns:1fr}}
 .photo-panel:after{content:"";position:absolute;inset:0;border:1px solid rgba(7,59,112,.18);pointer-events:none}
 .verification-note{padding:12px 15px;background:#fff3d7;border-left:3px solid var(--gold);font-size:.75rem;color:#604510}
 .neighborhood-section{background:#eaf2fb}
@@ -44,7 +47,10 @@ body[data-page="home"] .site-header.is-fixed{color:var(--espresso)}
 .legacy-intro{position:sticky;top:130px;align-self:start}
 .live-embed{aspect-ratio:16/9;background:#0d0908;display:grid;place-items:center;color:#d5c7bd}
 .live-embed iframe{width:100%;height:100%;border:0}
+.live-placeholder{position:relative;overflow:hidden;background:linear-gradient(100deg,rgba(4,8,18,.94),rgba(4,8,18,.52)),url("../images/worship/sanctuary-altar-portrait-680.webp") center 42%/cover no-repeat}.live-placeholder:after{content:"";position:absolute;inset:auto -8% -45% auto;width:55%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(86,217,255,.2),transparent 68%)}.live-placeholder-content{position:relative;z-index:1;width:min(100% - 48px,680px);text-align:center}.live-placeholder-mark{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 22px;border:1px solid rgba(255,255,255,.55);border-radius:50%;font-size:1.4rem;padding-left:4px}.live-placeholder h3{font:500 clamp(2.2rem,5vw,4.6rem)/.95 var(--serif);margin:10px 0;color:#fff}.live-placeholder p{color:#dce8ff}.live-placeholder .actions{justify-content:center;margin-top:26px}
 .service-archive{background:var(--paper)}.archive-embed{box-shadow:var(--glass-shadow);border-top:5px solid transparent;border-image:linear-gradient(90deg,var(--cyan),var(--cobalt),var(--violet),var(--red),var(--yellow)) 1}.archive-actions{display:flex;justify-content:flex-end;margin-top:24px}
+.intake-nav{position:sticky;top:82px;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}.intake-nav .shell{display:flex;gap:8px;overflow-x:auto;padding-block:12px;scrollbar-width:thin}.intake-nav a{flex:0 0 auto;padding:9px 13px;text-decoration:none;text-transform:uppercase;letter-spacing:.08em;font-size:.66rem;font-weight:800;color:var(--blue);border:1px solid rgba(7,91,232,.2)}.intake-nav a:hover{background:var(--blue);color:#fff}.intake-section{scroll-margin-top:145px}.intake-section .form-wrap{max-width:960px}.intake-section h2{font-size:clamp(2.8rem,6vw,5.2rem)}
+@media(max-width:980px){.intake-nav{top:76px}}
 @media(max-width:680px){
   :root{--shell:calc(100% - 30px)}
   .shell{width:auto;max-width:none;margin-left:15px;margin-right:15px}

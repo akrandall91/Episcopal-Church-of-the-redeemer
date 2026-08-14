@@ -55,6 +55,12 @@
   header?.querySelector(".brand small")?.replaceChildren("Greensboro · Est. 1906");
   if (footer) footer.innerHTML = `<footer class="site-footer"><div class="shell"><div class="footer-grid"><div><a class="brand" href="${href("index.html")}"><img class="brand-shield brand-shield-ko" src="${href("assets/images/logos/episcopal-shield-ko.png")}" alt=""><span><strong>Church of the Redeemer</strong><small>Greensboro · Est. 1909</small></span></a><p>A historic Black Episcopal parish. A church home for every generation.</p><p>901 E Friendly Ave<br>Greensboro, NC 27401<br><a href="tel:+13362750033">(336) 275-0033</a></p></div><div><h3>Welcome</h3><ul><li><a href="${href("visit.html")}">Plan Your Visit</a></li><li><a href="${href("getting-here.html")}">Getting Here</a></li><li><a href="${href("students-families.html")}">Students & Families</a></li><li><a href="${href("calendar.html")}">Calendar</a></li><li><a href="${href("share-a-memory.html")}">Share a Memory</a></li></ul></div><div><h3>Worship & care</h3><ul><li><a href="${href("watch-live.html")}">Watch Live</a></li><li><a href="${href("prayer-request.html")}">Prayer Request</a></li><li><a href="${href("pastoral-care.html")}">Pastoral Care</a></li><li><a href="${href("volunteer.html")}">Volunteer</a></li><li><a href="${href("give.html")}">Give</a></li></ul></div><div><h3>Stay connected</h3><p>Sunday Holy Eucharist at 10:00 AM.<br>Church School at 9:00 AM.</p><a class="button button-light" href="${href("newsletter.html")}">Join our newsletter</a><p><a href="https://www.facebook.com/EpiscopalRedeemergso/">Facebook</a> · <a href="${config.youtubeChannelUrl || "#"}">YouTube</a></p><img class="tec-footer-logo" src="${href("assets/images/logos/episcopal-church-horizontal-ko.png")}" alt="The Episcopal Church"></div></div><p class="episcopal-identity">A congregation of the Episcopal Diocese of North Carolina, The Episcopal Church, and the Anglican Communion.</p><div class="footer-bottom"><p>© 2026 Episcopal Church of the Redeemer</p><p><a href="${href("privacy.html")}">Privacy</a> · <a href="${href("member-updates.html")}">Member updates</a></p></div></div></footer>`;
   footer?.querySelector(".brand small")?.replaceChildren("Greensboro · Est. 1906");
+  const welcomeLinks = footer?.querySelector(".footer-grid > div:nth-child(2) ul");
+  if (welcomeLinks) {
+    const item = document.createElement("li");
+    item.innerHTML = `<a href="${href("intake.html")}">Forms & Requests</a>`;
+    welcomeLinks.appendChild(item);
+  }
   const menu = document.querySelector(".menu-button");
   let mobileTrigger = null;
   if (matchMedia("(max-width: 980px)").matches) {
@@ -116,6 +122,17 @@
   }
   document.querySelectorAll("[data-youtube-embed]").forEach(el => {
     if (!config.youtubeEmbedUrl) return;
+    const easternParts = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York", weekday: "short", hour: "numeric", minute: "numeric", hour12: false
+    }).formatToParts(new Date()).reduce((parts, part) => ({...parts, [part.type]: part.value}), {});
+    const minutes = Number(easternParts.hour) * 60 + Number(easternParts.minute);
+    const serviceWindow = easternParts.weekday === "Sun" && minutes >= 9 * 60 + 40 && minutes <= 11 * 60 + 45;
+    const forceLive = new URLSearchParams(location.search).get("live") === "1";
+    if (!serviceWindow && !forceLive) {
+      el.classList.add("live-placeholder");
+      el.innerHTML = `<div class="live-placeholder-content"><span class="live-placeholder-mark" aria-hidden="true">▶</span><p class="eyebrow gold">Next broadcast</p><h3>Sunday Holy Eucharist</h3><p>Sundays at 10:00 AM Eastern</p><div class="actions"><a class="button button-light" href="${config.youtubeChannelUrl || "#"}" target="_blank" rel="noopener">Visit our YouTube channel</a><a class="button button-outline light" href="${config.youtubeUploadsUrl || "#"}" target="_blank" rel="noopener">Watch a past service</a></div></div>`;
+      return;
+    }
     const frame = document.createElement("iframe");
     frame.src = config.youtubeEmbedUrl;
     frame.title = "Episcopal Church of the Redeemer livestream";
@@ -140,6 +157,24 @@
   document.querySelectorAll(".stream-actions a:first-child").forEach(el => {
     el.href = config.youtubeChannelUrl || "#";
   });
+  document.querySelectorAll('a[href*="text=Sunday+Holy+Eucharist+at+Redeemer"]').forEach(el => {
+    const url = new URL(el.href);
+    url.searchParams.set("details", `Weekly Holy Eucharist at Episcopal Church of the Redeemer. Watch online: ${new URL(href("watch-live.html"), location.href).href}`);
+    el.href = url.href;
+  });
+  document.querySelectorAll('a[href^="mailto:"][href*="Calendar%20event%20request"]').forEach(el => {
+    el.href = href("intake.html#calendar-event");
+    el.textContent = "Submit event details";
+  });
+  if (page === "privacy") {
+    const serviceHeading = [...document.querySelectorAll(".prose h3")].find(el => el.textContent === "Service providers");
+    serviceHeading?.nextElementSibling?.replaceChildren("When configured, form data may be processed through Google Sheets, Google Apps Script, Supabase, and approved email, hosting, or administrative providers. Their privacy and security terms also apply.");
+    if (serviceHeading?.nextElementSibling && !document.querySelector("#analytics-privacy")) {
+      const heading = document.createElement("h3"); heading.id = "analytics-privacy"; heading.textContent = "Website analytics";
+      const copy = document.createElement("p"); copy.textContent = "Redeemer may collect privacy-conscious activity data such as pages viewed, anonymous session identifiers, device category, referring website, scroll depth, and clicks on calendar, video, and giving links. Analytics never include the contents of prayer, pastoral-care, or other form messages and are disabled when a browser sends a Do Not Track signal.";
+      serviceHeading.nextElementSibling.after(heading, copy);
+    }
+  }
   if (location.hash === "#expect") document.querySelector("#service")?.scrollIntoView();
   document.querySelectorAll("[data-calendar-embed]").forEach(el => {
     if (!config.googleCalendarEmbedUrl) {
@@ -173,4 +208,11 @@
     frame.loading = "eager";
     el.replaceChildren(frame);
   });
+  if (config.analyticsEnabled && !document.querySelector('script[data-redeemer-analytics]')) {
+    const analytics = document.createElement("script");
+    analytics.src = href("assets/js/analytics.js");
+    analytics.defer = true;
+    analytics.dataset.redeemerAnalytics = "";
+    document.head.appendChild(analytics);
+  }
 })();
