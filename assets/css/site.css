@@ -44,6 +44,7 @@ body[data-page="home"] .site-header.is-fixed{color:var(--espresso)}
 .legacy-intro{position:sticky;top:130px;align-self:start}
 .live-embed{aspect-ratio:16/9;background:#0d0908;display:grid;place-items:center;color:#d5c7bd}
 .live-embed iframe{width:100%;height:100%;border:0}
+.service-archive{background:var(--paper)}.archive-embed{box-shadow:var(--glass-shadow);border-top:5px solid transparent;border-image:linear-gradient(90deg,var(--cyan),var(--cobalt),var(--violet),var(--red),var(--yellow)) 1}.archive-actions{display:flex;justify-content:flex-end;margin-top:24px}
 @media(max-width:680px){
   :root{--shell:calc(100% - 30px)}
   .shell{width:auto;max-width:none;margin-left:15px;margin-right:15px}

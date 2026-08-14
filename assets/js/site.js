@@ -127,6 +127,19 @@
   document.querySelectorAll("[data-youtube-gallery]").forEach(el => {
     el.href = config.youtubeUploadsUrl || config.youtubeChannelUrl || "#";
   });
+  document.querySelectorAll("[data-youtube-playlist]").forEach(el => {
+    if (!config.youtubePlaylistEmbedUrl) return;
+    const frame = document.createElement("iframe");
+    frame.src = config.youtubePlaylistEmbedUrl;
+    frame.title = "Redeemer past services playlist";
+    frame.loading = "lazy";
+    frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    frame.allowFullscreen = true;
+    el.replaceChildren(frame);
+  });
+  document.querySelectorAll(".stream-actions a:first-child").forEach(el => {
+    el.href = config.youtubeChannelUrl || "#";
+  });
   if (location.hash === "#expect") document.querySelector("#service")?.scrollIntoView();
   document.querySelectorAll("[data-calendar-embed]").forEach(el => {
     if (!config.googleCalendarEmbedUrl) {
