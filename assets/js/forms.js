@@ -1,5 +1,9 @@
 (() => {
-  const config = window.REDEEMER_CONFIG || {};
+  const config = window.REDEEMER_CONFIG || {
+    supabaseUrl: "https://ywsczpdwnkwtsvtudqwp.supabase.co",
+    supabasePublishableKey: "sb_publishable_-NHINmz1Mz9RDmhlTCA78A_Wr_rwrQ0",
+    submissionsTable: "form_submissions"
+  };
   const forms = document.querySelectorAll("form[data-submission-form]");
   const setStatus = (form, type, message) => {
     const box = form.querySelector(".form-status");
