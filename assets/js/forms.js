@@ -40,13 +40,22 @@
       window.dispatchEvent(new CustomEvent("redeemer:form-submitted", {detail:{formType:payload.form_type}}));
       return {ok:true};
     }
-    if (!config.supabaseUrl || !config.supabaseAnonKey) return {configured:false};
+    const supabaseKey = config.supabasePublishableKey || config.supabaseAnonKey;
+    if (!config.supabaseUrl || !supabaseKey) return {configured:false};
     delete payload.kind;
     delete payload.submitted_at;
     payload.status = "new";
+    const headers = {
+      "Content-Type":"application/json",
+      "apikey":supabaseKey,
+      "Prefer":"return=minimal"
+    };
+    if (!supabaseKey.startsWith("sb_publishable_")) {
+      headers.Authorization = `Bearer ${supabaseKey}`;
+    }
     const response = await fetch(`${config.supabaseUrl}/rest/v1/${config.submissionsTable || "form_submissions"}`, {
       method:"POST",
-      headers:{"Content-Type":"application/json","apikey":config.supabaseAnonKey,"Authorization":`Bearer ${config.supabaseAnonKey}`,"Prefer":"return=minimal"},
+      headers,
       body:JSON.stringify(payload)
     });
     if (!response.ok) throw new Error(`Submission failed (${response.status})`);

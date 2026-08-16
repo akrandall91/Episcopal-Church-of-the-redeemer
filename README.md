@@ -40,7 +40,7 @@ Runtime settings are in `assets/js/config.js`:
 
 ```js
 supabaseUrl: "https://YOUR_PROJECT.supabase.co",
-supabaseAnonKey: "YOUR_ANON_KEY"
+supabasePublishableKey: "YOUR_PUBLISHABLE_KEY"
 ```
 
 Never commit a Supabase service-role key. For production:

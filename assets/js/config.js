@@ -1,6 +1,7 @@
 window.REDEEMER_CONFIG = {
   basePath: "/Episcopal-Church-of-the-redeemer/",
-  supabaseUrl: "",
+  supabaseUrl: "https://ywsczpdwnkwtsvtudqwp.supabase.co",
+  supabasePublishableKey: "sb_publishable_-NHINmz1Mz9RDmhlTCA78A_Wr_rwrQ0",
   supabaseAnonKey: "",
   submissionsTable: "form_submissions",
   googleSheetsWebAppUrl: "",
