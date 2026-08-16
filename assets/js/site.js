@@ -60,6 +60,9 @@
     const item = document.createElement("li");
     item.innerHTML = `<a href="${href("intake.html")}">Forms & Requests</a>`;
     welcomeLinks.appendChild(item);
+    const memberItem = document.createElement("li");
+    memberItem.innerHTML = `<a href="${href("member-login.html")}">Member login</a>`;
+    welcomeLinks.appendChild(memberItem);
   }
   const menu = document.querySelector(".menu-button");
   let mobileTrigger = null;

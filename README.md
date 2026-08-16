@@ -82,6 +82,17 @@ See `docs/forms-and-data.md`.
 
 Until then, authorized staff can filter and export CSV using the Supabase table editor.
 
+## Invitation-only member portal
+
+The member portal UI lives in `member-login.html` and `member-dashboard.html`. To enable it:
+
+1. Run `database/member_portal.sql` in the Supabase SQL Editor after `database/schema.sql`.
+2. Set the Supabase Auth Site URL to the deployed website and allow `member-login.html` as a redirect URL.
+3. Invite members from **Authentication → Users → Add user → Send invitation**.
+4. Promote the initial staff administrator using the commented SQL statement at the end of `database/member_portal.sql`.
+
+Member access is enforced by Supabase Auth and row-level policies, not by the pages being hidden from navigation or search.
+
 ## Edit church content
 
 Verified structured content lives in `src/data/siteContent.js`. Update page copy as needed, but keep uncertain items labeled **Needs church confirmation**.
