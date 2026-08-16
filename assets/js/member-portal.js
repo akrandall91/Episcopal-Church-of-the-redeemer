@@ -140,9 +140,15 @@
       events.forEach(item => {
         const article=createCard(item.title,item.description || "",new Date(item.starts_at).toLocaleString());
         if (item.location) { const locationLine=document.createElement("strong"); locationLine.textContent=item.location; article.appendChild(locationLine); }
+        const detail=document.createElement("a"); detail.className="text-link"; detail.href=memberUrl(`event.html?id=${encodeURIComponent(item.id)}`); detail.textContent="View event details →"; article.appendChild(detail);
         eventsBox.appendChild(article);
       });
       if (!events.length) eventsBox.appendChild(emptyState("No member events have been posted yet."));
+
+      const googleCalendar=document.querySelector("[data-member-google-calendar]");
+      if (googleCalendar && config.googleCalendarEmbedUrl) {
+        const frame=document.createElement("iframe"); frame.src=config.googleCalendarEmbedUrl; frame.title="Redeemer Google Calendar"; frame.loading="lazy"; googleCalendar.replaceChildren(frame);
+      }
 
       const resourcesBox=document.querySelector("[data-member-resources]"); resourcesBox.replaceChildren();
       resources.forEach(item => {

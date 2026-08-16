@@ -1,0 +1,3 @@
+[functions.google-calendar-import]
+verify_jwt = true
+

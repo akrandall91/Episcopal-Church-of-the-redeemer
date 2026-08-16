@@ -80,6 +80,10 @@ See `docs/forms-and-data.md`.
 
 `admin.html` is an authenticated staff content console for publishing calendar events and member announcements. Run `database/admin_content.sql` after `database/member_portal.sql`, promote authorized accounts to `staff` or `admin`, then sign in through `member-login.html?next=admin.html`. Supabase row-level security remains the authority for every read and write.
 
+The console accepts one PDF or image attachment per event (PDF, JPG, PNG, WebP, or GIF, up to 10 MB). Files are stored in the private `event-attachments` Supabase Storage bucket and are exposed only through short-lived signed links when the event audience permits access.
+
+To enable **Import from Google Calendar**, enable the Google Calendar API, create an API key restricted to that API, and add `GOOGLE_CALENDAR_API_KEY` plus `GOOGLE_CALENDAR_ID` as Supabase Edge Function secrets. Deploy `supabase/functions/google-calendar-import`, which is restricted to signed-in staff and admin accounts. The default calendar ID is `redeemer8716@gmail.com`.
+
 Until then, authorized staff can filter and export CSV using the Supabase table editor.
 
 ## Invitation-only member portal
