@@ -67,7 +67,7 @@
     const loginForm = document.querySelector("[data-member-login]");
     const status = document.querySelector("[data-member-status]");
     const hash = new URLSearchParams(location.hash.slice(1));
-    if (hash.get("type") === "recovery" && hash.get("access_token")) {
+    if (["invite","recovery","signup"].includes(hash.get("type")) && hash.get("access_token")) {
       const card = document.querySelector(".member-auth-card");
       card.innerHTML = `<h2>Choose a new password</h2><form data-member-new-password class="form-grid"><div class="field full"><label for="new-member-password">New password</label><input id="new-member-password" name="password" type="password" minlength="8" autocomplete="new-password" required></div><div class="field full"><button class="button button-primary" type="submit">Update password</button><div class="form-status" data-member-status></div></div></form>`;
       card.querySelector("form").addEventListener("submit", async event => {
