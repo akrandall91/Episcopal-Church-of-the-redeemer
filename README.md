@@ -78,7 +78,7 @@ See `docs/forms-and-data.md`.
 
 ## Admin and CSV export
 
-`admin.html` is a visual scaffold only. It is not linked publicly and is marked `noindex`, but it is not secure. Add Supabase Auth, an admin role, server-side/authorized queries, and row-level policies before loading real data.
+`admin.html` is an authenticated staff content console for publishing calendar events and member announcements. Run `database/admin_content.sql` after `database/member_portal.sql`, promote authorized accounts to `staff` or `admin`, then sign in through `member-login.html?next=admin.html`. Supabase row-level security remains the authority for every read and write.
 
 Until then, authorized staff can filter and export CSV using the Supabase table editor.
 
@@ -119,7 +119,7 @@ Update `youtubeChannelUrl` and `youtubeEmbedUrl` in `assets/js/config.js`.
 
 ### Events
 
-Edit `calendar.html`. A future approved Google Calendar or parish feed can replace the static cards without changing navigation.
+Public events are managed in `admin.html` and rendered from Supabase in `calendar.html`. Each published event includes an Add to Google Calendar link.
 
 ## Add pages
 

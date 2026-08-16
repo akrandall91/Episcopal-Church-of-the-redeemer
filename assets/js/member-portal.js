@@ -8,6 +8,7 @@
   const storageKey = "redeemer_member_session";
   const pageBase = location.pathname.includes("/Episcopal-Church-of-the-redeemer/") ? "/Episcopal-Church-of-the-redeemer/" : "/";
   const memberUrl = page => `${pageBase}${page}`;
+  const nextPage = new URLSearchParams(location.search).get("next") === "admin.html" ? "admin.html" : "member-dashboard.html";
 
   const setStatus = (element, type, message) => {
     if (!element) return;
@@ -68,7 +69,7 @@
   const emptyState = message => { const p=document.createElement("p"); p.className="member-empty"; p.textContent=message; return p; };
 
   const setupLogin = async () => {
-    if (await activeSession()) { location.replace(memberUrl("member-dashboard.html")); return; }
+    if (await activeSession()) { location.replace(memberUrl(nextPage)); return; }
     const loginForm = document.querySelector("[data-member-login]");
     const status = document.querySelector("[data-member-status]");
     const hash = new URLSearchParams(location.hash.slice(1));
@@ -96,7 +97,7 @@
           method:"POST", body:JSON.stringify({email:event.currentTarget.email.value,password:event.currentTarget.password.value})
         });
         saveSession(session);
-        location.assign(memberUrl("member-dashboard.html"));
+        location.assign(memberUrl(nextPage));
       } catch (error) { setStatus(status,"error",error.message); }
       finally { button.disabled=false; }
     });
@@ -118,8 +119,8 @@
       const user=await request("/auth/v1/user",{},token);
       const [profiles,announcements,events,resources] = await Promise.all([
         request(`/rest/v1/member_profiles?id=eq.${encodeURIComponent(user.id)}&select=*`,{},token),
-        request("/rest/v1/member_announcements?select=*&order=published_at.desc",{},token),
-        request(`/rest/v1/member_events?select=*&starts_at=gte.${encodeURIComponent(new Date().toISOString())}&order=starts_at.asc`,{},token),
+        request("/rest/v1/member_announcements?select=*&status=eq.published&order=pinned.desc,published_at.desc",{},token),
+        request(`/rest/v1/member_events?select=*&status=eq.published&starts_at=gte.${encodeURIComponent(new Date().toISOString())}&order=starts_at.asc`,{},token),
         request("/rest/v1/member_resources?select=*&order=category.asc,title.asc",{},token)
       ]);
       const profile=profiles[0] || {display_name:"",phone:"",directory_opt_in:false,communication_opt_in:true};
