@@ -7,6 +7,7 @@ window.REDEEMER_CONFIG = {
   analyticsEnabled: true,
   youtubeChannelUrl: "https://www.youtube.com/channel/UCohOBrKaSFQ0-m4cmZ3X6GA",
   youtubeEmbedUrl: "https://www.youtube.com/embed/live_stream?channel=UCohOBrKaSFQ0-m4cmZ3X6GA",
+  youtubeLatestVideoEmbedUrl: "https://www.youtube.com/embed/videoseries?list=UUohOBrKaSFQ0-m4cmZ3X6GA",
   youtubeUploadsUrl: "https://www.youtube.com/playlist?list=PLKxlEPTu8ZsY",
   youtubePlaylistEmbedUrl: "https://www.youtube.com/embed/videoseries?list=PLKxlEPTu8ZsY",
   churchEmail: "redeemer8716@gmail.com",

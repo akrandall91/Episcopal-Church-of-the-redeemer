@@ -121,6 +121,16 @@
     cinematicHero.querySelector(".hero-video")?.pause();
   }
   document.querySelectorAll("[data-youtube-embed]").forEach(el => {
+    if (config.youtubeLatestVideoEmbedUrl) {
+      const latestFrame = document.createElement("iframe");
+      latestFrame.src = config.youtubeLatestVideoEmbedUrl;
+      latestFrame.title = "Episcopal Church of the Redeemer live or latest service";
+      latestFrame.loading = "lazy";
+      latestFrame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      latestFrame.allowFullscreen = true;
+      el.replaceChildren(latestFrame);
+      return;
+    }
     if (!config.youtubeEmbedUrl) return;
     const easternParts = new Intl.DateTimeFormat("en-US", {
       timeZone: "America/New_York", weekday: "short", hour: "numeric", minute: "numeric", hour12: false
