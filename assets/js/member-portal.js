@@ -25,14 +25,19 @@
     return stored;
   };
   const clearSession = () => localStorage.removeItem(storageKey);
-  const request = async (path, options = {}, token = "") => {
+  const request = async (path, options = {}, token = "", attempt = 0) => {
     if (!base || !key) throw new Error("Member access has not been configured.");
     const headers = {apikey:key, "Content-Type":"application/json", ...(options.headers || {})};
     if (token) headers.Authorization = `Bearer ${token}`;
     const response = await fetch(`${base}${path}`, {...options, headers});
     if (!response.ok) {
       const detail = await response.json().catch(() => ({}));
-      throw new Error(detail.msg || detail.message || detail.error_description || `Request failed (${response.status})`);
+      const message = detail.msg || detail.message || detail.error_description || `Request failed (${response.status})`;
+      if (attempt === 0 && /JWT issued at future/i.test(message)) {
+        await new Promise(resolve => setTimeout(resolve, 4000));
+        return request(path, options, token, attempt + 1);
+      }
+      throw new Error(message);
     }
     if (response.status === 204 || response.headers.get("content-length") === "0") return null;
     return response.json();
