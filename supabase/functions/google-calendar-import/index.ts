@@ -23,7 +23,8 @@ Deno.serve(async (request) => {
     url.searchParams.set("key", apiKey);
     url.searchParams.set("singleEvents", "true");
     url.searchParams.set("orderBy", "startTime");
-    url.searchParams.set("timeMin", new Date(Date.now() - 30 * 86400000).toISOString());
+    // Import only events happening now or later.
+    url.searchParams.set("timeMin", new Date().toISOString());
     url.searchParams.set("maxResults", "100");
     const googleResponse = await fetch(url);
     const result = await googleResponse.json();

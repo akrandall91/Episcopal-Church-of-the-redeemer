@@ -45,6 +45,16 @@ using (
   (status = 'published' and published_at <= now() and expires_at > now())
 );
 
+drop policy if exists "public read current announcements" on public.member_announcements;
+create policy "public read current announcements"
+on public.member_announcements for select to anon
+using (
+  status = 'published' and audience = 'public' and
+  published_at <= now() and expires_at > now()
+);
+
+grant select on public.member_announcements to anon;
+
 drop policy if exists "members read events" on public.member_events;
 create policy "members read events"
 on public.member_events for select to authenticated
