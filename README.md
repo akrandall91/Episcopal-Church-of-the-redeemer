@@ -82,6 +82,8 @@ See `docs/forms-and-data.md`.
 
 The console accepts one PDF or image attachment per event (PDF, JPG, PNG, WebP, or GIF, up to 10 MB). Files are stored in the private `event-attachments` Supabase Storage bucket and are exposed only through short-lived signed links when the event audience permits access.
 
+Run `database/admin_forms.sql` to enable the staff-only Forms workspace. It provides submission search and filtering, workflow statuses, private follow-up notes, detail review, and CSV export while preserving the public insert-only policy.
+
 To enable **Import from Google Calendar**, enable the Google Calendar API, create an API key restricted to that API, and add `GOOGLE_CALENDAR_API_KEY` plus `GOOGLE_CALENDAR_ID` as Supabase Edge Function secrets. Deploy `supabase/functions/google-calendar-import`, which is restricted to signed-in staff and admin accounts. The default calendar ID is `redeemer8716@gmail.com`.
 
 Until then, authorized staff can filter and export CSV using the Supabase table editor.
