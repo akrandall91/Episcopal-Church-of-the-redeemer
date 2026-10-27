@@ -35,12 +35,13 @@
       submitted_at:new Date().toISOString()
     };
     if (config.googleSheetsWebAppUrl) {
-      await fetch(config.googleSheetsWebAppUrl, {
+      const response = await fetch(config.googleSheetsWebAppUrl, {
         method:"POST",
-        mode:"no-cors",
         headers:{"Content-Type":"text/plain;charset=utf-8"},
         body:JSON.stringify(payload)
       });
+      const reply = await response.json().catch(() => ({}));
+      if (!response.ok || reply.ok !== true) throw new Error(`Sheet submission failed: ${reply.error || response.status}`);
       window.dispatchEvent(new CustomEvent("redeemer:form-submitted", {detail:{formType:payload.form_type}}));
       return {ok:true};
     }
@@ -71,7 +72,7 @@
     const button=form.querySelector('[type="submit"]'); button.disabled=true; button.textContent="Sending…";
     try {
       const result=await submit(form);
-      if (!result.configured) setStatus(form,"config","This form is ready, but online submissions have not been connected yet. Please call (336) 275-0033 while configuration is completed.");
+      if (result.configured === false) setStatus(form,"config","This form is ready, but online submissions have not been connected yet. Please call (336) 275-0033 while configuration is completed.");
       else { setStatus(form,"success","Thank you. Your information has been sent to Redeemer."); form.reset(); }
     } catch(error) { console.error(error); setStatus(form,"error","We could not send this form. Please try again or call (336) 275-0033."); }
     finally { button.disabled=false; button.textContent=button.dataset.label || "Submit"; }
