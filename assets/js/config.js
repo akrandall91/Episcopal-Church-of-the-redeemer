@@ -4,7 +4,7 @@ window.REDEEMER_CONFIG = {
   supabasePublishableKey: "sb_publishable_-NHINmz1Mz9RDmhlTCA78A_Wr_rwrQ0",
   supabaseAnonKey: "",
   submissionsTable: "form_submissions",
-  googleSheetsWebAppUrl: "",
+  googleSheetsWebAppUrl: "https://script.google.com/macros/s/AKfycbyid4q2FsFH9OcGajv4jDhIZqT11c8nAy5Tspx10Lw8XwFe2bGc6oqlRdARJvkYqYY/exec",
   analyticsEnabled: true,
   youtubeChannelUrl: "https://www.youtube.com/channel/UCohOBrKaSFQ0-m4cmZ3X6GA",
   youtubeEmbedUrl: "https://www.youtube.com/embed/live_stream?channel=UCohOBrKaSFQ0-m4cmZ3X6GA",
